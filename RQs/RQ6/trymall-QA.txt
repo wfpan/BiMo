@@ -1,0 +1,895 @@
+
+trymall\trymall-db\src\main\java\com\linfeng\db\base\BaseInterface.java
+	1.What is the purpose of the BaseInterface interface?
+		Standard answer： It is intended to be implemented by other classes to provide the API URL and request method for a specific functionality or service. 
+	2.What does the getApiUrl() method in the BaseInterface interface do?
+		Standard answer：It is responsible for returning the API URL associated with a particular functionality or service. 
+	3.What does the getRequestMethod() method in the BaseInterface interface do?
+		Standard answer：It is responsible for returning the HTTP request method (e.g., GET, POST, PUT, DELETE) associated with a particular functionality or service. 
+
+trymall\trymall-common\src\main\java\com\linfeng\common\response\ApiResult.java
+	1.What is the purpose of the code attribute in the ApiResult class?
+		Standard answer：The code attribute in the ApiResult class represents the response code associated with an API result.
+	2.What does the result method in the ApiResult class do?
+		Standard answer：The result method in the ApiResult class is an overloaded method that generates an instance of the ApiResult class based on different parameters. 
+	3.What does the okMap method in the ApiResult class do?
+		Standard answer： The okMap method in the ApiResult class is a utility method that generates an ApiResult object with a success status and a single key-value pair in the data field. 
+
+trymall\trymall-api\src\main\java\com\linfeng\api\service\impl\HomeServiceImpl.java
+	1.What is the purpose of the redisUtils attribute in the HomeServiceImpl class?
+		Standard answer：The redisUtils attribute is used to interact with Redis, a popular in-memory data store. It provides utility methods to store, retrieve, and manipulate data in Redis.
+	2.What does the deserver method in the HomeServiceImpl class do?
+		Standard answer：The deserver method sends a request to an API endpoint called ApiDeserver and retrieves the response. If the response is not present in the Redis cache, the method makes the API request, stores the response in Redis with an expiration time of 1 hour, and returns the response.
+	3.What does the district method in the HomeServiceImpl class do?
+		Standard answer：The district method retrieves data related to districts from an API endpoint called ApiColumn. 
+		
+trymall\trymall-api\src\main\java\com\linfeng\api\util\hdk\HdkApiRequest.java
+	1.What is the purpose of the doRequest method in the HdkApiRequest class?
+		Standard answer：The doRequest method is responsible for executing API requests to the Haodanku API.
+	2.How does the doRequest method handle API response errors?
+		Standard answer：The doRequest method checks the response status code to ensure that the API request was successful. 
+	3.What is the purpose of the requestMethod variable in the doRequest method?
+		Standard answer： The requestMethod variable stores the HTTP request method (GET or POST) to be used in the API request.
+
+trymall\trymall-api\src\main\java\com\linfeng\api\service\impl\DiscoveryServiceImpl.java
+	1.What is the purpose of the DiscoveryServiceImpl class?
+		Standard answer：The DiscoveryServiceImpl class is a service implementation class that provides methods for retrieving various data from the Haodanku API.
+	2.How does the handpick method work?
+		Standard answer： The handpick method retrieves handpicked items from the Haodanku API.
+		It first checks if the data is available in the Redis cache based on the redisKey formed using the page parameter.
+		If the data is not present in the cache, it creates an ApiHandpick object, sets the necessary parameters, and calls the HdkApiRequest.doRequest method to make the API request.
+	3.How does the theme method work?
+		Standard answer：It checks if the data is available in the Redis cache using the redisKey formed with the themeId. If the data is not present in the cache, it creates an ApiTheme object, sets the apikey and id parameters, and calls the HdkApiRequest.doRequest method to make the API request. 
+
+trymall\trymall-api\src\main\java\com\linfeng\api\service\impl\GoodsServiceImpl.java
+	1.What is the purpose of the redisUtils attribute in the GoodsServiceImpl class?
+		Standard answer：he redisUtils attribute is used to interact with Redis, a popular in-memory data store. It provides utility methods for storing, retrieving, and managing data in Redis.
+	2.What does the getDetails method in the GoodsServiceImpl class do?
+		Standard answer： It checks Redis cache for the data based on the redisKey formed using goodsId. If data is not present, it creates ApiGoodsDetails object, sets parameters, and calls HdkApiRequest.doRequest method. 
+		The response is stored in Redis with 1-hour expiration and returned. If data is already cached, it is directly returned.
+	3.What does the rates method in the GoodsServiceImpl class do?
+		Standard answer：The rates method retrieves the rates (reviews) of a specific goods item from the Haodanku API. 
+		
+trymall\trymall-common\src\main\java\com\linfeng\common\exception\TrymallException.java
+	1.What is the purpose of the TrymallException class?
+		Standard answer：The TrymallException class is a custom exception class that extends the RuntimeException class. It is used to represent exceptions specific to the Trymall application. 
+	2.What is the purpose of the errorCode and message attributes in the TrymallException class?
+		Standard answer：The errorCode attribute represents the error code associated with the exception. The message attribute stores the error message associated with the exception.
+	3.How does the TrymallException class handle exceptions related to the ApiCode enum?
+		Standard answer：The TrymallException class provides a constructor that takes an ApiCode object as a parameter. 
+
+trymall\trymall-api\src\main\java\com\linfeng\api\service\impl\SearchServiceImpl.java
+	1.What is the purpose of the SearchServiceImpl class?
+		Standard answer：The SearchServiceImpl class is a service implementation that provides methods for searching and retrieving data related to keywords and goods.
+		It utilizes Redis caching and makes API requests to retrieve and store data.
+	2.What is the role of the redisUtils attribute in the SearchServiceImpl class?
+		Standard answer：The redisUtils attribute is used to interact with Redis, an in-memory data store. It provides utility methods for caching and retrieving data from Redis. 
+	3.How does the keyword() method in the SearchServiceImpl class work?
+		Standard answer：The keyword() method retrieves keyword data. It first checks if the data is available in the Redis cache based on the redisKey formed using the constant RedisKeyConstant.API_DATA + "keyword". If the data is not present in the cache, 
+		it creates an ApiKeyword object, sets the necessary parameters, and calls the HdkApiRequest.doRequest method to make the API request.
+
+trymall\trymall-api\src\main\java\com\linfeng\api\service\LogService.java
+	1.What is the purpose of the attribute uid in the LogService interface?
+		Standard answer：The attribute uid is used to store the unique identifier of a user. It is likely used to associate the log data with a specific user in the system.
+	2.What is the functionality of the saveApp method in the LogService interface?
+		Standard answer：The saveApp method is used to save user-side log data.The method is marked with the @Async annotation, indicating that it will be executed asynchronously.
+	3.What is the purpose of the @Async annotation in the saveApp method?
+		Standard answer：The @Async annotation in the saveApp method indicates that the method should be executed asynchronously.
+		
+trymall\trymall-api\src\main\java\com\linfeng\api\service\BrandService.java
+	1.What is the purpose of the BrandService interface?
+		Standard answer：The BrandService interface serves as a service contract for managing brand-related operations. 
+	2.What is the difference between the findById() and findByBrandId(Integer id) methods in the BrandService interface?
+		Standard answer：The findById() method in the BrandService interface is likely intended to retrieve a specific TrymallBrand entity without specifying the brand ID explicitly. The findByBrandId(Integer id) method is specifically designed to find a TrymallBrand entity based on the provided brand ID.
+	3.How does the findAllByPage(int page, int limit) method in the BrandService interface work?
+		Standard answer：The findAllByPage(int page, int limit) method is used to retrieve a paginated list of TrymallBrand entities. 
+
+trymall\trymall-api\src\main\java\com\linfeng\api\service\HomeService.java
+	1.What is the purpose of the HomeService interface?
+		Standard answer：The HomeService interface defines a set of methods that are likely related to various functionalities and features of a home or main page in an application or system. 
+	2.What does the deserver() method in the HomeService interface do?
+		Standard answer：The deserver method sends a request to an API endpoint called ApiDeserver and retrieves the response. If the response is not present in the Redis cache, the method makes the API request, stores the response in Redis with an expiration time of 1 hour, and returns the response.
+	3.What does the district method in the HomeService class do?
+		Standard answer：The district method retrieves data related to districts from an API endpoint called ApiColumn. 
+
+trymall\trymall-api\src\main\java\com\linfeng\api\service\TrymallSysConfigService.java
+	1.What is the purpose of the attribute systemConfig in the create method of the TrymallSysConfigService interface?
+		Standard answer：The attribute systemConfig in the create method is used to pass a TrymallSysConfig object that represents the system configuration to be created. 
+	2.What does the getSystemConfigVo() method in the TrymallSysConfigService interface do?
+		Standard answer：The getSystemConfigVo() method is responsible for retrieving the system configuration information in the form of a SystemConfigVo object.
+	3.Does the TrymallSysConfigService interface extend any other interface or class?
+		Standard answer：The TrymallSysConfigService interface extends the IService<TrymallSysConfig> interface provided by the MyBatis-Plus framework. 
+		
+trymall\trymall-common\src\main\java\com\linfeng\common\domain\tbk\TrymallBanner.java
+	1.What is the purpose of the attribute image in the TrymallBanner class?
+		Standard answer： The attribute image is used to store the URL or path of the main image associated with the banner. 
+	2.What does the toString() method in the TrymallBanner class do?
+		Standard answer：The toString() method in the TrymallBanner class provides a textual representation of the TrymallBanner object. It returns a string that includes the values of various attributes.
+	3.Does the TrymallBanner class interact with any other classes?
+		Standard answer：Based on the provided code, the TrymallBanner class does not appear to directly interact with other classes.
+
+trymall\trymall-api\src\main\java\com\linfeng\api\service\TrymallCourseService.java
+	1.What is the purpose of the attribute course in the page method of the TrymallCourseService interface?
+		Standard answer：The attribute course is used as a parameter in the page method to specify the filtering or search criteria for retrieving a specific page of TrymallCourse objects. 
+	2.What does the getList() method in the TrymallCourseService interface do?
+		Standard answer：The getList() method retrieves a list of CourseVo objects representing courses. 
+	3.Does the TrymallCourseService interface interact with any other classes?
+		Standard answer：No.
+
+trymall\trymall-api\src\main\java\com\linfeng\api\service\TrymallSystemMessageService.java
+	1.What is the purpose of the page method in the TrymallSystemMessageService interface?
+		Standard answer：The page method is used to retrieve a specific page of TrymallSystemMessage objects based on the provided systemMessage criteria.
+	2.What does the getList method in the TrymallSystemMessageService interface do?
+		Standard answer：The getList method retrieves a list of SystemMessageVo objects, which represents system messages in a transformed or value object form. 
+	3.What does the article method in the TrymallSystemMessageService interface do?
+		Standard answer：The article method retrieves a specific system message identified by the provided articleId. 
+		
+trymall\trymall-api\src\main\java\com\linfeng\api\service\TrymallBannerService.java
+	1.What is the purpose of the deleteById method in the TrymallSystemMessageService interface?
+		Standard answer：The deleteById method is used to delete a system message from the database based on the provided id.
+	2.What does the getList method in the TrymallSystemMessageService interface do?
+		Standard answer：The getList method retrieves a list of SystemMessageVo objects, which likely represents system messages in a transformed or value object form.
+	3.What is the purpose of inheriting the IService interface
+		Standard answer：Inheriting the IService interface establishes a standard set of methods for performing common CRUD operations and other utility operations.
+
+trymall\trymall-api\src\main\java\com\linfeng\api\controller\UploadController.java
+	1.What is the purpose of the active attribute in the UploadController class?
+		Standard answer：The active attribute is used to determine the active cloud storage service for uploading images. It stores the value indicating the currently active cloud storage service, such as "ALIYUN" or "QINIU".
+	2.What is the functionality of the uploadFile method in the UploadController class?
+		Standard answer：The uploadFile method handles the uploading of an image file to the configured cloud storage service.
+	3.What does the upload method in the UploadController class do?
+		Standard answer：The upload method is responsible for uploading a MultipartFile to Aliyun OSS.
+
+trymall\trymall-api\src\main\java\com\linfeng\api\service\DiscoveryService.java
+	1.What is the purpose of the DiscoveryService ?
+		Standard answer：The DiscoveryService provides methods for retrieving various data from the Haodanku API.
+	2.How does the handpick method work?
+		Standard answer： The handpick method retrieves handpicked items from the Haodanku API.
+		It first checks if the data is available in the Redis cache based on the redisKey formed using the page parameter.
+		If the data is not present in the cache, it creates an ApiHandpick object, sets the necessary parameters, and calls the HdkApiRequest.doRequest method to make the API request.
+	3.How does the theme method work?
+		Standard answer：It checks if the data is available in the Redis cache using the redisKey formed with the themeId. If the data is not present in the cache, it creates an ApiTheme object, sets the apikey and id parameters, and calls the HdkApiRequest.doRequest method to make the API request. 
+
+		
+trymall\trymall-api\src\main\java\com\linfeng\api\service\GoodsService.java
+	1.What is the purpose of the redisUtils attribute in the GoodsService?
+		Standard answer：The redisUtils attribute is used to interact with Redis, a popular in-memory data store. It provides utility methods for storing, retrieving, and managing data in Redis.
+	2.What does the getDetails method in the GoodsService do?
+		Standard answer： It checks Redis cache for the data based on the redisKey formed using goodsId. If data is not present, it creates ApiGoodsDetails object, sets parameters, and calls HdkApiRequest.doRequest method. 
+		The response is stored in Redis with 1-hour expiration and returned. If data is already cached, it is directly returned.
+	3.What does the rates method in the GoodsService do?
+		Standard answer：The rates method retrieves the rates (reviews) of a specific goods item from the Haodanku API. 
+		
+trymall\trymall-api\src\main\java\com\linfeng\api\service\impl\TrymallBannerServiceImpl.java
+	1.What is the purpose of the getListBySort method in the TrymallBannerServiceImpl class?
+		Standard answer：The getListBySort method retrieves a list of BannerVo objects representing banners, sorted by a specific criterion.
+	2.What is the functionality of the add method in the TrymallBannerServiceImpl class?
+		Standard answer：The add method is used to add a new TrymallBanner object to the database. 
+	3.What does the delete method in the TrymallBannerServiceImpl class do?
+		Standard answer：The delete method is responsible for deleting a banner from the database. 
+
+trymall\trymall-common\src\main\java\com\linfeng\common\domain\TrymallCourse.java
+	1.What is the purpose of the @TableId annotation in the TrymallCourse class?
+		Standard answer：The @TableId annotation is used to specify the primary key field in the database table corresponding to the TrymallCourse entity.
+	2.What does the @TableLogic annotation indicate in the TrymallCourse class?
+		Standard answer：The @TableLogic annotation is used for logical deletion support in the database table. It marks the delFlag field as a logical delete flag.
+	3.What is the purpose of the @TableField annotation in the TrymallCourse class?
+		Standard answer： The @TableField annotation is used to specify the mapping between fields in the TrymallCourse class and the corresponding columns in the database table. 
+
+trymall\trymall-common\src\main\java\com\linfeng\common\domain\TrymallSystemMessage.java		
+	1.What does the @TableField(fill = FieldFill.INSERT) annotation indicate in the TrymallSystemMessage class?
+		Standard answer：The @TableField(fill = FieldFill.INSERT) annotation indicates that the createDate field should be automatically filled with the current timestamp when a new record is inserted into the database table.
+	2.Can you explain the purpose of the @JsonFormat annotation in the TrymallSystemMessage class?
+		Standard answer：The @JsonFormat annotation in the TrymallSystemMessage class is used to specify the formatting of the createDate and updateDate fields when they are serialized or deserialized to/from JSON.
+	3.What does the toString() method in the TrymallSystemMessage class do?
+		Standard answer：The toString() method in the TrymallSystemMessage class provides a textual representation of the TrymallSystemMessage object. It returns a string that includes the values of various attributes.
+
+trymall\trymall-api\src\main\java\com\linfeng\api\controller\TrymallCourseController.java		
+	1.What is the purpose of the TrymallCourseController class in the code?
+		Standard answer：It handles incoming HTTP requests related to courses and delegates the processing to the appropriate methods in the TrymallCourseService class.
+	2.What does the page method in the TrymallCourseController class do?
+		Standard answer： The page method is responsible for paginated retrieval of TrymallCourse objects. 
+	3.Can you explain the purpose of the AdminCheck annotation used in the TrymallCourseController class?
+		Standard answer：It is a custom annotation that serves as a marker or qualifier for a specific functionality related to authorization or access control.
+
+trymall\trymall-api\src\main\java\com\linfeng\api\controller\TrymallSystemMessageController.java		
+	1.What is the purpose of the @Transactional annotation used in the TrymallSystemMessageController class?
+		Standard answer： It ensures that if any of the methods fail or encounter an exception, the changes made within the transaction are rolled back, maintaining data consistency.
+	2.What does the getList method in the TrymallSystemMessageController class do?
+		Standard answer： The getList method retrieves a list of system messages. It calls the getList method of the systemMessageService to fetch the list of SystemMessageVo objects.
+	3.What does the delete method in the TrymallSystemMessageController class do?
+		Standard answer： It takes the systemMessageId as a path variable and uses the systemMessageService to delete the corresponding system message from the database.	
+
+trymall\trymall-common\src\main\java\com\linfeng\common\domain\system\Log.java		
+	1.What is the purpose of the @Data annotation used in the Log class?
+		Standard answer： The @Data annotation is a Lombok annotation that automatically generates getter and setter methods, toString, equals, and hashCode methods for all the fields in the Log class, reducing boilerplate code.
+	2.What does the @EqualsAndHashCode(callSuper = true) annotation indicate in the Log class?
+		Standard answer：The @EqualsAndHashCode(callSuper = true) annotation is used to generate the equals and hashCode methods in the Log class.
+	3.What is the purpose of the @TableName("log") annotation used in the Log class?
+		Standard answer：The @TableName("log") annotation is a MyBatis-Plus annotation that specifies the name of the database table associated with the Log entity.	
+
+trymall\trymall-api\src\main\java\com\linfeng\api\service\SearchService.java		
+	1.What is the purpose of the SearchService?
+		Standard answer：The SearchService is a service implementation that provides methods for searching and retrieving data related to keywords and goods.
+		It utilizes Redis caching and makes API requests to retrieve and store data.
+	2.What is the role of the redisUtils attribute in the SearchService?
+		Standard answer：The redisUtils attribute is used to interact with Redis, an in-memory data store. It provides utility methods for caching and retrieving data from Redis. 
+	3.How does the keyword() method in the SearchService work?
+		Standard answer：The keyword() method retrieves keyword data. It first checks if the data is available in the Redis cache based on the redisKey formed using the constant RedisKeyConstant.API_DATA + "keyword". If the data is not present in the cache, 
+		it creates an ApiKeyword object, sets the necessary parameters, and calls the HdkApiRequest.doRequest method to make the API request.
+		
+trymall\trymall-api\src\main\java\com\linfeng\api\util\hdk\request\ApiBrand.java		
+	1.What is the purpose of the ApiBrand class?
+		Standard answer：The purpose of the ApiBrand class is to represent a request for brand-related data from a specific API.
+	2.What does the getApiUrl method in the ApiBrand class do?
+		Standard answer：The getApiUrl method returns the URL of the API endpoint to which the ApiBrand request should be sent. 
+	3.What is the purpose of the getRequestMethod method in the ApiBrand class?
+		Standard answer：The getRequestMethod method specifies the HTTP request method to be used when making the ApiBrand request.
+
+trymall\trymall-api\src\main\java\com\linfeng\api\util\hdk\request\ApiColumn.java
+	1.What is the purpose of the ApiColumn class?
+		Standard answer：The purpose of the ApiColumn class is to represent a request for filtered product data from a specific API.
+	2.What does the getApiUrl method in the ApiColumn class do?
+		Standard answer：The getApiUrl method returns the URL of the API endpoint to which the ApiColumn request should be sent. 
+	3.What is the purpose of the getRequestMethod method in the ApiColumn class?
+		Standard answer：The getRequestMethod method specifies the HTTP request method to be used when making the ApiColumn request.	
+
+trymall\trymall-api\src\main\java\com\linfeng\api\util\hdk\request\ApiDeserver.java		
+	1.What is the purpose of the ApiDeserver class?
+		Standard answer：The purpose of the ApiDeserver class is to represent a request for retrieving "Today's Deserve Buy" data from a specific API.
+	2.What does the getApiUrl method in the ApiDeserver class do?
+		Standard answer：The getApiUrl method returns the URL of the API endpoint to which the ApiDeserver request should be sent.
+	3.What is the purpose of the getRequestMethod method in the ApiDeserver class?
+		Standard answer：The getRequestMethod method specifies the HTTP request method to be used when making the ApiDeserver request. 	
+
+trymall\trymall-api\src\main\java\com\linfeng\api\util\hdk\request\ApiHot.java		
+	1.What is the purpose of the ApiHot class?
+		Standard answer：The purpose of the ApiHot class is to represent a request for retrieving hot-selling product data from a specific API.
+	2.What does the getApiUrl method in the ApiHot class do?
+		Standard answer：The getApiUrl method returns the URL of the API endpoint to which the ApiHot request should be sent.
+	3.Can you explain the purpose of the BaseInterface interface in the ApiHot class?
+		Standard answer：The BaseInterface interface serves as a marker interface in the ApiHot class.	
+
+trymall\trymall-api\src\main\java\com\linfeng\api\util\hdk\request\ApiTalent.java		
+	1.What is the purpose of the talentcat attribute in the ApiTalent class?
+		Standard answer：The talentcat attribute is used to store the category of articles that users are browsing.
+	2.What is the functionality of the getApiUrl method in the ApiTalent class?
+		Standard answer：The getApiUrl method returns the URL of the API endpoint for retrieving talent information.
+	3.Does the ApiTalent class call any methods from other classes?
+		Standard answer：No.
+
+trymall\trymall-api\src\main\java\com\linfeng\api\util\hdk\request\ApiTalentArticle.java		
+	1.What is the purpose of the id attribute in the ApiTalentArticle class?
+		Standard answer：The id attribute is used to store the ID of the talent article that needs to be retrieved.
+	2.What is the functionality of the getApiUrl method in the ApiTalentArticle class?
+		Standard answer：The getApiUrl method returns the URL of the API endpoint for retrieving talent articles. 
+	3.Can you explain the purpose of the BaseInterface interface in the ApiTalentArticle class?
+		Standard answer：The BaseInterface interface serves as a marker interface in the ApiTalentArticle class.
+
+trymall\trymall-api\src\main\java\com\linfeng\api\util\hdk\request\ApiHandpick.java	
+	1.What is the purpose of the min_id attribute in the ApiHandpick class?
+		Standard answer：The min_id attribute is used to store the minimum ID value for pagination purposes when retrieving selected items.
+	2.What is the functionality of the getApiUrl method in the ApiHandpick class?
+		Standard answer： The getApiUrl method returns the URL of the API endpoint for retrieving selected items. 
+	3.Can you explain the purpose of the BaseInterface interface in the ApiHandpick class?
+		Standard answer：The BaseInterface interface serves as a marker interface in the ApiHandpick class.	
+		
+trymall\trymall-api\src\main\java\com\linfeng\api\util\hdk\request\ApiNews.java	
+	1.How does the setMin_id method in the ApiNews class affect the value of the min_id attribute?
+		Standard answer： The setMin_id method in the ApiNews class sets the value of the min_id attribute to the provided parameter value, allowing external code to specify the minimum ID for pagination.
+	2.What HTTP request method is used by the ApiNews class to interact with the API endpoint?
+		Standard answer：The ApiNews class utilizes the HTTP GET request method to interact with the API endpoint
+	3.What is the functionality of the getApiUrl method in the ApiNews class?
+		Standard answer：The getApiUrl method in the ApiNews class returns the URL of the API endpoint for retrieving hot subjects.
+		
+trymall\trymall-api\src\main\java\com\linfeng\api\util\hdk\request\ApiTheme.java	
+	1.What is the purpose of the id attribute in the ApiTheme class?
+		Standard answer：The id attribute in the ApiTheme class is used to store the ID of the theme for which related items need to be retrieved.
+	2.What is the functionality of the getApiUrl method in the ApiTheme class?
+		Standard answer：The getApiUrl method in the ApiTheme class returns the URL of the API endpoint for retrieving items related to a specific theme.
+	3.Can you explain the purpose of the BaseInterface interface in the ApiTheme class?
+		Standard answer：The BaseInterface interface serves as a marker interface in the ApiTheme class.	
+		
+trymall\trymall-api\src\main\java\com\linfeng\api\util\hdk\request\ApiThemeList.java
+	1.What is the purpose of any attribute in the ApiThemeList class?
+		Standard answer：The ApiThemeList class does not have any specific attributes defined. 
+	2.What is the functionality of the getApiUrl method in the ApiThemeList class?
+		Standard answer：The getApiUrl method in the ApiThemeList class returns the URL of the API endpoint for retrieving a list of themes. 
+	3.Can you explain the purpose of the BaseInterface interface in the ApiThemeList class?
+		Standard answer：The BaseInterface interface serves as a marker interface in the ApiThemeList class.	
+		
+trymall\trymall-api\src\main\java\com\linfeng\api\util\hdk\request\ApiGoodsDetails.java
+	1.What is the purpose of the ApiGoodsDetails class?
+		Standard answer：The purpose of the ApiGoodsDetails class is to retrieve details of a specific item or product.
+	2.What is the API endpoint URL used by the ApiGoodsDetails class?
+		Standard answer：The ApiGoodsDetails class uses the API endpoint URL "http://v2.api.haodanku.com/item_detail" to fetch item details.
+	3.What is the role of the itemid attribute in the ApiGoodsDetails class?
+		Standard answer：The itemid attribute stores the ID of the item for which the details are being requested. 
+
+trymall\trymall-api\src\main\java\com\linfeng\api\util\hdk\request\ApiGoodsLike.java
+	1.What is the purpose of the ApiGoodsLike class?
+		Standard answer：The purpose of the ApiGoodsLike class is to retrieve information about similar items or products based on a given item ID.
+	2.What is the API endpoint URL used by the ApiGoodsLike class?
+		Standard answer：The ApiGoodsLike class uses the API endpoint URL "http://v2.api.haodanku.com/get_similar_info" to fetch information about similar items.
+	3.What is the role of the itemid attribute in the ApiGoodsLike class?
+		Standard answer：The itemid attribute stores the ID of the item for which similar item information is being requested. 
+
+trymall\trymall-api\src\main\java\com\linfeng\api\util\hdk\request\ApiGoodsRates.java	
+	1.What is the purpose of the ApiGoodsRates class?
+		Standard answer：he purpose of the ApiGoodsRates class is to retrieve rates information for a specific item.
+	2.What are the attributes tb_name used for in the ApiGoodsRates class?
+		Standard answer：The tb_name attribute stores the name of the Taobao account associated with the rates information.
+	3.What are the attributes itemid used for in the ApiGoodsRates class?
+		Standard answer：The itemid attribute stores the ID of the item for which rates information is being requested.
+		
+trymall\trymall-api\src\main\java\com\linfeng\api\util\hdk\request\ApiKeyword.java	
+	1.What is the purpose of the ApiKeyword class?
+		Standard answer：The purpose of the ApiKeyword class is to retrieve hot keywords or popular search terms.
+	2.What is the API endpoint URL used by the ApiKeyword class?
+		Standard answer：The ApiKeyword class uses the API endpoint URL "http://v2.api.haodanku.com/hot_key" to fetch hot keywords.
+	3.What is the request method used by the ApiKeyword class?
+		Standard answer：The ApiKeyword class uses the HTTP GET request method to retrieve hot keywords.
+		
+trymall\trymall-api\src\main\java\com\linfeng\api\aspect\AppLogAspect.java	
+	1.What is the purpose of the AppLogAspect class?
+		Standard answer： The purpose of the AppLogAspect class is to provide logging functionality using aspect-oriented programming (AOP) for methods annotated with @AppLog.
+	2.What is the role of the logPointCut method in the AppLogAspect class?
+		Standard answer： The logPointCut method defines the pointcut for the logging aspect. It is configured to match methods annotated with @AppLog for weaving the logging behavior.
+	3.What is the significance of the logAround method in the AppLogAspect class?
+		Standard answer：The logAround method is an advice executed around the join point (method execution). It logs the method execution time, creates a log entry, and saves it using the logService.
+		
+trymall\trymall-api\src\main\java\com\linfeng\api\util\hdk\request\ApiSearchGoods.java	
+	1.What is the purpose of the ApiSearchGoods class?
+		Standard answer：The purpose of the ApiSearchGoods class is to perform a supersearch for goods based on a given keyword and other optional parameters.
+	2.What are the attributes keyword used for in the ApiSearchGoods class?
+		Standard answer：The keyword attribute stores the search keyword, which is encoded using UTF-8.
+	3.What is the request method used by the ApiSearchGoods class?
+		Standard answer：The ApiSearchGoods class uses the HTTP GET request method to retrieve hot keywords.
+		
+trymall\trymall-api\src\main\java\com\linfeng\api\service\SystemConfigService.java	
+	1.What is the purpose of the SystemConfigService interface?
+		Standard answer：The purpose of the SystemConfigService interface is to define service methods related to system configurations
+	2.What is the base class extended by the SystemConfigService interface?
+		Standard answer：The SystemConfigService interface extends the BaseService<SystemConfig> base class, which provides generic methods for CRUD operations on SystemConfig entities.
+	3.What does the getData method in the SystemConfigService interface do?
+		Standard answer：he getData method is used to retrieve the value of a configuration based on its name.
+
+trymall\trymall-common\src\main\java\com\linfeng\common\domain\tbk\TrymallSysConfig.java	
+	1.What is the purpose of the TrymallSysConfig class?
+		Standard answer：The purpose of the TrymallSysConfig class is to represent the system configuration module, which stores various information related to the system.
+	2.What is the primary key field for the TrymallSysConfig class, and what type of ID is used?
+		Standard answer：The primary key field for the TrymallSysConfig class is the id field, and it uses a string value as the ID type. It is annotated with @TableId.
+	3.What does the @TableLogic annotation do in the TrymallSysConfig class?
+		Standard answer：The @TableLogic annotation in the TrymallSysConfig class is used to indicate the logical deletion feature for the corresponding database table.
+		
+trymall\trymall-api\src\main\java\com\linfeng\api\service\impl\LogServiceImpl.java	
+	1.What is the purpose of the LogServiceImpl class?
+		Standard answer：The purpose of the LogServiceImpl class is to provide an implementation for the LogService interface. 
+	2.What is the significance of the @Transactional annotation used in the LogServiceImpl class?
+		Standard answer：The @Transactional annotation is used to define the transactional behavior of methods in the LogServiceImpl class.
+	3.What does the saveApp method in the LogServiceImpl class do?
+		Standard answer：The saveApp method is responsible for saving application logs. 
+		
+trymall\trymall-api\src\main\java\com\linfeng\api\service\TrymallSearchhistoryService.java	
+	1.What is the purpose of the TrymallSearchhistoryService interface?
+		Standard answer：The purpose of the TrymallSearchhistoryService interface is to define the contract for the service class responsible for handling operations related to the search history table.
+	2.What is the domain object used for representing search history in the TrymallSearchhistoryService interface?
+		Standard answer：The TrymallSearchhistoryService interface uses the TrymallSearchhistory domain object to represent a search history entry. 
+	3.What is the purpose of the IService interface that the TrymallSearchhistoryService extends?
+		Standard answer：By extending IService, the TrymallSearchhistoryService inherits a set of generic methods such as save, update, remove, and getById, which can be used to perform basic CRUD operations on the TrymallSearchhistory entities.
+		
+trymall\trymall-api\src\main\java\com\linfeng\api\controller\TrymallBannerController.java
+	1.What is the purpose of the TrymallBannerController class?
+		Standard answer：The purpose of the TrymallBannerController class is to handle HTTP requests related to the homepage carousel module.
+	2.What does the @GetMapping("/getListBySort") annotation indicate?
+		Standard answer： The @GetMapping("/getListBySort") annotation indicates that the corresponding method, getBannerListBySort(), is intended to handle HTTP GET requests with the /carousel/getListBySort endpoint.
+	3.What is the purpose of the @AdminCheck annotation used in several methods?
+		Standard answer：This annotation performs an authorization or authentication check to ensure that only authorized administrators can access or perform operations on the banners.
+		
+trymall\trymall-common\src\main\java\com\linfeng\common\domain\TrymallSearchhistory.java	
+	1.What is the purpose of the TrymallSearchhistory class?
+		Standard answer：The purpose of the TrymallSearchhistory class is to represent the entity or model for the Search History Table
+	2.What does the @TableId annotation indicate?
+		Standard answer：The @TableId annotation is used to indicate the primary key attribute of the entity.
+	3.What is the purpose of the @TableLogic annotation?
+		Standard answer：The @TableLogic annotation is used to mark a field as the logical deletion flag in the database table.
+
+trymall\trymall-api\src\main\java\com\linfeng\api\controller\BrandController.java	
+	1.What is the purpose of the BrandController class?
+		Standard answer：The purpose of the BrandController class is to handle HTTP requests related to brand operations.
+	2.What is the purpose of the @PostMapping annotation?
+		Standard answer：The @PostMapping annotation is used to map an HTTP POST request to a specific handler method in the BrandController class. 
+	3.What does the @GetMapping annotation indicate?
+		Standard answer：The @GetMapping annotation is used to map an HTTP GET request to a specific handler method in the BrandController class. 
+		
+trymall\trymall-api\src\main\java\com\linfeng\api\controller\TrymallSysConfigController.java	
+	1.What is the purpose of the getSystemConfig method?
+		Standard answer： The getSystemConfig method is used to retrieve the system configuration information. It invokes the getSystemConfigVo method from the TrymallSysConfigService to obtain a SystemConfigVo object, which contains various system configuration details.
+	2.What does the single method in the TrymallSysConfigController class do?
+		Standard answer：The single method retrieves a single TrymallSysConfig object from the database. It invokes the list method from the TrymallSysConfigService to fetch a list of system configurations.
+	3.What is the purpose of the create method in the TrymallSysConfigController class?
+		Standard answer：The create method is used to create a new system configuration entry. It expects a TrymallSysConfig object as a request body parameter, which contains the necessary data for creating a system configuration.
+		
+trymall\trymall-api\src\main\java\com\linfeng\api\service\QiNiuService.java	
+	1.What is the purpose of the upload method in the QiNiuService interface?
+		Standard answer：The upload method is used to upload a file to the QiNiu storage system. It accepts a MultipartFile object as a parameter, which represents the file to be uploaded. 
+	2.What does the QiniuContent class represent?
+		Standard answer：The QiniuContent class represents the content or information of a file stored in the QiNiu storage system.
+	3.Is there any interaction with other classes in the provided code?
+		Standard answer：No.
+		
+trymall\trymall-api\src\main\java\com\linfeng\api\service\TrymallIssueService.java	
+	1.What does the TrymallIssueService interface extend?
+		Standard answer：The TrymallIssueService interface extends the IService<TrymallIssue> interface.
+	2.What is the purpose of the findAll method in the TrymallIssueService interface?
+		Standard answer：The findAll method is used to retrieve all the common issues or frequently asked questions. 
+	3.Does the TrymallIssueService interface define any additional methods apart from findAll?
+		Standard answer：No.
+		
+trymall\trymall-api\src\main\java\com\linfeng\api\service\impl\TrymallCourseServiceImpl.java	
+	1.What is the purpose of the page() method in the TrymallCourseServiceImpl class?
+		Standard answer：The page method is used to retrieve a paginated list of TrymallCourse objects.
+	2.What does the getList() method in the TrymallCourseServiceImpl class do?
+		Standard answer： The getList method retrieves a list of CourseVo objects. It uses the baseMapper (the associated MyBatis mapper) to execute the getList query and returns the result.
+	3.What does the deleteById method in the TrymallCourseServiceImpl class do?
+		Standard answer：The deleteById method is responsible for deleting a TrymallCourse record by its ID. 
+
+trymall\trymall-api\src\main\java\com\linfeng\api\redis\listener\RedisKeyExpirationListener.java	
+	1.What is the purpose of the RedisKeyExpirationListener class?
+		Standard answer：The RedisKeyExpirationListener class is responsible for listening to expiration events of keys in Redis.  It implements the MessageListener interface and performs specific actions when a key expires.
+	2.What is the purpose of the onMessage method in the RedisKeyExpirationListener class?
+		Standard answer：he onMessage method is invoked when a Redis key expiration event occurs.
+	3.What is the purpose of the body.contains(ShopConstants.REDIS_ORDER_OUTTIME_UNPAY) condition in the onMessage method?
+		Standard answer：It checks if the body variable contains a specific string constant (REDIS_ORDER_OUTTIME_UNPAY) related to an order that has expired without being paid. If the condition is true, it performs further processing or handling related to the automatic cancellation of such orders.
+		
+trymall\trymall-api\src\main\java\com\linfeng\api\redis\Initial\RedisKeyInitialization.java	
+	1.What is the purpose of the RedisKeyInitialization class?
+		Standard answer：The RedisKeyInitialization class is responsible for initializing Redis keys by setting their corresponding values. It implements the CommandLineRunner interface, which allows the initialization process to be executed when the application starts.
+	2.What is the purpose of the redisKeyInitialization method in the RedisKeyInitialization class?
+		Standard answer：The redisKeyInitialization method is responsible for initializing the Redis keys by retrieving system configurations from the SystemConfigService and setting their values in Redis using the RedisUtils utility class.
+	3.What happens if an exception occurs during the Redis key initialization process?
+		Standard answer：If an exception occurs during the Redis key initialization process, the redisKeyInitialization method catches the exception and logs an error message containing the specific error message generated by the exception.
+		
+trymall\trymall-api\src\main\java\com\linfeng\api\util\thread\LocalUser.java
+	1.What is the purpose of the LocalUser class?
+		Standard answer：The LocalUser class provides a thread-local storage mechanism to store and retrieve information related to the current user and their scope.
+	2.What does the set method in the LocalUser class do?
+		Standard answer：The set method is used to set the user and scope information in the thread-local storage.
+	3.What does the getUser method in the LocalUser class do?
+		Standard answer：The getUser method retrieves the TrymallUser object from the thread-local storage. 
+		
+trymall\trymall-common\src\main\java\com\linfeng\common\exception\GlobalExceptionHandler.java
+	1.What is the purpose of the GlobalExceptionHandler class?
+		Standard answer：The GlobalExceptionHandler class handles global exceptions that may occur during the execution of the application. 
+	2.What does the handleMethodArgumentNotValidExceptionHandler method do?
+		Standard answer：The handleMethodArgumentNotValidExceptionHandler method handles the MethodArgumentNotValidException, which occurs when the validation of method arguments fails.
+	3.What is the purpose of the TrymallException method in the GlobalExceptionHandler class?
+		Standard answer：he TrymallException method handles custom business or data exceptions that extend the TrymallException class. 
+		
+trymall\trymall-api\src\main\java\com\linfeng\api\controller\TrymallIssueController.java	
+	1.What is the purpose of the trymallIssueService attribute?
+		Standard answer：The trymallIssueService attribute is used to reference an instance of the TrymallIssueService class, which provides functionality related to the common issue table.
+	2.What does the findAll method in the TrymallIssueController class do?
+		Standard answer：The findAll method is responsible for handling the HTTP GET request to retrieve all the common issues. 
+	3.What is the purpose of the @AuthCheck annotation in the TrymallIssueController class?
+		Standard answer：The @AuthCheck annotation indicates that the annotated method (findAll in this case) requires authentication and authorization checks. 
+
+trymall\trymall-api\src\main\java\com\linfeng\api\controller\TrymallSearchhistoryController.java	
+	1.What is the purpose of the trymallSearchhistoryService attribute?
+		Standard answer：The trymallSearchhistoryService attribute is used to reference an instance of the TrymallSearchhistoryService class, which provides functionality related to the search history table.
+	2.What does the findAll method in the TrymallSearchhistoryController class do?
+		Standard answer：The findAll method is responsible for handling the HTTP GET request to retrieve all the search history entries.
+	3.What is the purpose of RestController annotations?
+		Standard answer：The purpose of the @RestController annotation in Spring MVC is to indicate that a particular class is a RESTful web service controller. It combines the @Controller and @ResponseBody annotations into a single annotation.
+		
+trymall\trymall-api\src\main\java\com\linfeng\api\util\StringUtils.java	
+	1.What is the purpose of the getIp method in the StringUtils class?
+		Standard answer：The getIp method is used to retrieve the IP address of the client making the HTTP request. 
+	2.What does the getCityInfo method in the StringUtils class do?
+		Standard answer：The getCityInfo method takes an IP address as input and retrieves the detailed address information associated with that IP address. 
+	3.Can you explain how the getBrowser method in the StringUtils class determines the browser?
+		Standard answer：The getBrowser method in the StringUtils class determines the browser used by the client making the HTTP request by inspecting the User-Agent header.
+		
+trymall\trymall-api\src\main\java\com\linfeng\api\redis\lock\RedisLock.java	
+	1.What is the purpose of the redisTemplate attribute in the RedisLock class?
+		Standard answer： The redisTemplate attribute is used to interact with Redis, a key-value data store. It is responsible for executing Redis commands and operations such as setting values, retrieving values, and deleting keys.
+	2.What does the secKilllock method in the RedisLock class do?
+		Standard answer：The secKilllock method implements a distributed lock mechanism using Redis. It attempts to acquire a lock by setting the value of a specified key if it doesn't already exist.
+	3.What does the unlock method in the RedisLock class do?
+		Standard answer：The unlock method is used to release the lock obtained by the secKilllock method. It takes the key and value of the lock as parameters.
+		
+trymall\trymall-api\src\main\java\com\linfeng\api\redis\listener\RedisListenerConfig.java	
+	1.What is the purpose of the redisTemplate attribute in the RedisListenerConfig class?
+		Standard answer：The redisTemplate attribute is used to interact with Redis, a key-value data store. It provides the necessary operations to communicate with Redis.
+	2.What does the container method in the RedisListenerConfig class do?
+		Standard answer：The container method is responsible for creating and configuring a RedisMessageListenerContainer instance. This container is used to listen for and handle Redis key expiration events.
+	3.How does the RedisKeyExpirationListener class handle Redis key expiration events?
+		Standard answer：The RedisKeyExpirationListener class handles Redis key expiration events by implementing the MessageListener interface provided by Spring Data Redis.
+
+trymall\trymall-api\src\main\java\com\linfeng\api\controller\HomeController.java
+	1.What is the purpose of the homeService attribute in the HomeController class?
+		Standard answer：The homeService attribute is used to access and invoke methods provided by the HomeService class.
+	2.What does the hot method in the HomeController class do?
+		Standard answer：The hot method is responsible for handling a GET request to the /hot endpoint. 
+	3.Can you explain the purpose of the talentArticle method in the HomeController class?
+		Standard answer：The talentArticle method in the HomeController class serves the purpose of handling a GET request to the /talent/article endpoint. 
+
+trymall\trymall-api\src\main\java\com\linfeng\api\util\sms\SmsUtils.java	
+	1.What is the purpose of the sendSms method in the SmsUtils class?
+		Standard answer：The purpose of the sendSms method is to send a SMS (Short Message Service) to a specified phone number.
+	2.How does the SmsUtils class retrieve the required configuration values for sending SMS?
+		Standard answer：The SmsUtils class retrieves the required configuration values from a Redis database.
+	3.Which API is utilized for sending SMS in the SmsUtils class?
+		Standard answer：The SmsUtils class uses the Aliyun SMS API to send SMS. 
+		
+trymall\trymall-api\src\main\java\com\linfeng\api\util\RequestHolder.java	
+	1.What is the purpose of the getHttpServletRequest method in the RequestHolder class?
+		Standard answer：The purpose of the getHttpServletRequest method is to retrieve the current HttpServletRequest object associated with the ongoing request. 
+	2.How does the getHttpServletRequest method obtain the HttpServletRequest object?
+		Standard answer：The getHttpServletRequest method uses the RequestContextHolder class from the Spring framework to obtain the current request attributes. 
+	3.What does the RequestHolder class provide in terms of request handling?
+		Standard answer：The RequestHolder class provides a static method, getHttpServletRequest, which acts as a utility for accessing the HttpServletRequest object. 
+		
+trymall\trymall-common\src\main\java\com\linfeng\common\exception\BadRequestException.java	
+	1.What is the purpose of the BadRequestException class?
+		Standard answer： The purpose of the BadRequestException class is to represent an exception that occurs when a client sends a bad or malformed request to the server. 
+	2.What does the status variable represent in the BadRequestException class?
+		Standard answer：The status variable represents the HTTP status code associated with the exception. By default, it is set to the value of the HTTP status code 400.
+	3.How is the BadRequestException class different from a regular RuntimeException?
+		Standard answer：The BadRequestException class is a subclass of RuntimeException and inherits its behavior. However, it adds an additional functionality of storing an HTTP status code associated with the exception.
+		
+trymall\trymall-api\src\main\java\com\linfeng\api\controller\DiscoveryController.java
+	1.What is the purpose of the DiscoveryController class?
+		Standard answer：The purpose of the DiscoveryController class is to handle HTTP requests related to the discovery functionality.
+	2.What does the handpick method in the DiscoveryController class do?
+		Standard answer：The handpick method is responsible for handling a GET request to the /discovery/handpick endpoint.
+	3.What is the purpose of the themeList method in the DiscoveryController class?
+		Standard answer：The themeList method handles a GET request to the /discovery/themeList endpoint. 
+		
+trymall\trymall-api\src\main\java\com\linfeng\api\controller\GoodsController.java
+	1.What is the purpose of the GoodsController class?
+		Standard answer：The purpose of the GoodsController class is to handle HTTP requests related to goods.
+	2.What does the getDetails method in the GoodsController class do?
+		Standard answer：The getDetails method handles a GET request to the /goods/getDetails endpoint. 
+	3.What does the like method in the GoodsController class do?
+		Standard answer：The like method handles a GET request to the /goods/like endpoint. The purpose of this method is to indicate that the user has liked a particular goods item identified by the goodsId and return the corresponding response.
+
+trymall\trymall-api\src\main\java\com\linfeng\api\controller\SearchController.java	
+	1.What is the purpose of the SearchController class?
+		Standard answer：The purpose of the SearchController class is to handle HTTP requests related to searching.
+	2.What does the keyword method in the SearchController class do?
+		Standard answer：The keyword method handles a GET request to the /search/keyword endpoint.
+	3.What does the goods method in the SearchController class do?
+		Standard answer： The goods method handles a GET request to the /search/goods endpoint.The purpose of this method is to search for goods based on the specified criteria and return the search results as a response.
+		
+trymall\trymall-common\src\main\java\com\linfeng\common\exception\BusinessException.java
+	1.What is the purpose of the serialVersionUID attribute in the BusinessException class?
+		Standard answer：It ensures that the serialized and deserialized objects have the same identifier, preventing compatibility issues when the class structure changes.
+	2.What is the functionality of the BusinessException(String message) constructor in the BusinessException class?
+		Standard answer：The BusinessException(String message) constructor in the BusinessException class creates an instance of the BusinessException class with a custom error message. 
+	3.Does the BusinessException class interact with any other classes?
+		Standard answer：Yes, the BusinessException class interacts with the ApiCode class.
+		
+trymall\trymall-common\src\main\java\com\linfeng\common\exception\DaoException.java	
+	1.What functionality does the DaoException(String message) constructor provide in the DaoException class?
+		Standard answer：The DaoException(String message) constructor in the DaoException class creates an instance of the DaoException class with a custom error message.
+	2.What is the purpose of the serialVersionUID attribute in the DaoException class?
+		Standard answer：It ensures the compatibility of serialized objects across different versions of the class.
+	3.Does the DaoException class interact with any other classes?
+		Standard answer： Yes, the DaoException class interacts with the ApiCode class.
+		
+trymall\trymall-common\src\main\java\com\linfeng\common\exception\UnAuthenticatedException.java
+	1.What is the purpose of the UnAuthenticatedException class?
+		Standard answer：The purpose of the UnAuthenticatedException class is to represent an exception related to unauthenticated access or authentication failure in the system. 
+	2.What is the functionality of the UnAuthenticatedException(String message) constructor in the UnAuthenticatedException class?
+		Standard answer：The UnAuthenticatedException(String message) constructor creates an instance of the UnAuthenticatedException class with a custom error message.
+	3.What does the UnAuthenticatedException(ApiCode apiCode) constructor do?
+		Standard answer：The UnAuthenticatedException(ApiCode apiCode) constructor creates an instance of the UnAuthenticatedException class by taking an ApiCode object as a parameter.
+		
+trymall\trymall-api\src\main\java\com\linfeng\api\aspect\RepeatSubmitAspect.java
+	1.What is the purpose of the pointCut method in the RepeatSubmitAspect class?
+		Standard answer：The pointCut method is a pointcut definition in the RepeatSubmitAspect class. It defines the join point for the advice execution.
+	2.What is the functionality of the around method in the RepeatSubmitAspect class?
+		Standard answer： The around method is an advice method in the RepeatSubmitAspect class, which is executed around the join point specified by the pointCut method. 
+	3.What is the purpose of the NoRepeatSubmit annotation used in the around method?
+		Standard answer：The NoRepeatSubmit annotation is used to mark methods that should be protected against repeat submissions. It specifies the expiration time for the lock acquired during the method execution. 
+
+trymall\trymall-db\src\main\java\com\linfeng\db\mapper\TrymallCourseMapper.java	
+	1.What is the purpose of the TrymallCourseMapper interface?
+		Standard answer：The TrymallCourseMapper interface serves as the Mapper interface for the TrymallCourse entity in the educational course module. It extends the BaseMapper<TrymallCourse> interface provided by MyBatis Plus to inherit basic CRUD operations.
+	2.What is the purpose of the @Select annotation in the TrymallCourseMapper interface?
+		Standard answer：The purpose of the @Select annotation in the TrymallCourseMapper interface is to indicate that the annotated method should be used to execute a SELECT SQL statement. 
+	3.What is the purpose of the @Param annotation in the TrymallCourseMapper interface?
+		Standard answer：The @Param annotation is used to specify the name of the parameter for the corresponding SQL query parameter.
+		
+trymall\trymall-db\src\main\java\com\linfeng\db\mapper\TrymallSystemMessageMapper.java	
+	1.What is the purpose of the TrymallSystemMessageMapper interface?
+		Standard answer： It extends the BaseMapper<TrymallSystemMessage> interface provided by MyBatis Plus to inherit basic CRUD operations.
+	2.What is the purpose of the @Param annotation in the TrymallSystemMessageMapper interface?
+		Standard answer：The @Param annotation is used to specify the name of the parameter for the corresponding SQL query parameter.
+	3.What is the purpose of the getList() method in the TrymallSystemMessageMapper interface?
+		Standard answer：The purpose of the getList() method in the TrymallSystemMessageMapper interface is to retrieve a list of system messages.
+		
+trymall\trymall-api\src\main\java\com\linfeng\api\util\oss\QiNiuUtil.java	
+	1.What is the purpose of the getRegion method in the QiNiuUtil class?
+		Standard answer：The getRegion method is used to obtain the corresponding Region based on the provided zone name. It determines the region based on the input zone and returns the appropriate Region object. 
+	2.What does the getKey method in the QiNiuUtil class do?
+		Standard answer：The getKey method generates a key (filename) for a file based on the provided file name. By default, it uses the hash value of the file content along with the current date and time to create a unique key.
+	3.Does the QiNiuUtil class interact with any other classes or make calls to other methods?
+		Standard answer：No.
+		
+trymall\trymall-api\src\main\java\com\linfeng\api\config\MyMetaObjectHandler.java	
+	1.What is the purpose of the MyMetaObjectHandler class?
+		Standard answer： It is used to automatically populate certain fields during insert and update operations in the database. The class handles the automatic filling of specific fields with predefined values.
+	2.What are the fields automatically populated during the insertFill method in the MyMetaObjectHandler class?
+		Standard answer：createTime,updateTime,addTime,createDate,updateDate,isDel.
+	3.What fields are updated during the updateFill method in the MyMetaObjectHandler class?
+		Standard answer： The updateFill method in the MyMetaObjectHandler class updates the following fields if they exist in the metadata:updateTime,updateDate.
+		
+trymall\trymall-api\src\main\java\com\linfeng\api\config\MybatisPlusConfig.java	
+	1.What is the purpose of the MybatisPlusConfig class?
+		Standard answer：The MybatisPlusConfig class is a configuration class responsible for defining and configuring various components related to MyBatis Plus.
+	2.What does the paginationInterceptor bean method do?
+		Standard answer：The paginationInterceptor bean method creates and returns an instance of the PaginationInterceptor class. This interceptor is a MyBatis Plus component used for enabling pagination support in SQL queries.
+	3.What is the purpose of the globalConfig bean method in the MybatisPlusConfig class?
+		Standard answer：The globalConfig bean method creates and returns an instance of the GlobalConfig class, which represents the global configuration for MyBatis Plus.
+
+trymall\trymall-db\src\main\java\com\linfeng\db\mapper\TrymallSysConfigMapper.java	
+	1.What is the purpose of the TrymallSysConfigMapper interface?
+		Standard answer：The TrymallSysConfigMapper interface serves as the mapper interface for the TrymallSysConfig entity in the system.
+	2.What is the purpose of the getSystemConfigVo method in the TrymallSysConfigMapper interface?
+		Standard answer：It uses the @Select annotation to execute a SQL query that retrieves specific fields (contact, about, footer) from the trymall_sys_config table. 
+	3.What is the significance of the SystemConfigVo return type in the getSystemConfigVo method?
+		Standard answer：The SystemConfigVo return type indicates that the getSystemConfigVo method returns an object of type SystemConfigVo.
+		
+trymall\trymall-api\src\main\java\com\linfeng\api\util\oss\FileUtil.java	
+	1.What is the purpose of the attribute DF in the FileUtil class?
+		Standard answer：The attribute DF is used to format decimal numbers. It formats numbers with two decimal places for displaying file sizes in a human-readable format.
+	2.What does the toFile method in the FileUtil class do?
+		Standard answer：The toFile method converts a MultipartFile object to a File object. It creates a temporary file with a unique name generated using UUID and transfers the content of the MultipartFile to the created file.
+	3.What does the method call FileUtil.getExtensionName(fileName) do?
+		Standard answer：The FileUtil.getExtensionName(fileName) method extracts and returns the extension (file type) from a given filename. 
+		
+trymall\trymall-api\src\main\java\com\linfeng\api\ApiApplication.java	
+	1.What is the purpose of @EnableAsync annotation?
+		Standard answer：The @EnableAsync annotation is used to enable asynchronous method execution in the application. 
+	2.Which packages are scanned by the @ComponentScan annotation in the ApiApplication class?
+		Standard answer：The @ComponentScan annotation scans and detects components (such as controllers, services, and repositories) within the com.linfeng package.
+	3.Can you explain the purpose of the @EnableTransactionManagement annotation?
+		Standard answer：The @EnableTransactionManagement annotation is used to enable transaction management in a Spring application.
+		
+trymall\trymall-api\src\main\java\com\linfeng\api\config\CorsConfig.java	
+	1.What is the purpose of the CorsConfig class?
+		Standard answer：The CorsConfig class is responsible for configuring Cross-Origin Resource Sharing (CORS) for the Spring application. 
+	2.What does the buildConfig method do?
+		Standard answer：The buildConfig method creates and configures a CorsConfiguration object. 
+	3.What is the purpose of the corsFilter method?
+		Standard answer：The CorsFilter handles the actual filtering of requests based on the CORS configuration.
+		
+trymall\trymall-api\src\main\java\com\linfeng\api\config\InterceptorConfig.java	
+	1.What is the purpose of the InterceptorConfig class?
+		Standard answer：The InterceptorConfig class is responsible for configuring and registering interceptors for handling incoming HTTP requests in a Spring application.
+	2.What interceptors are registered in the InterceptorConfig class?
+		Standard answer：The InterceptorConfig class registers two interceptors: AuthCheckInterceptor and AdminAuthCheck. 
+	3.How are the interceptors added to the interceptor registry?
+		Standard answer：The interceptors are added to the interceptor registry in the addInterceptors method of the WebMvcConfigurer interface.
+
+trymall\trymall-api\src\main\java\com\linfeng\api\config\ValidatorConfiguration.java	
+	1.What is the purpose of the ValidatorConfiguration class?
+		Standard answer：The ValidatorConfiguration class is responsible for configuring and providing a Validator bean for validating objects in a Spring application.
+	2.What is the significance of the hibernate.validator.fail_fast property?
+		Standard answer：When set to "true", it enables the fast-fail mode, which means validation will stop immediately after encountering the first validation failure. When set to "false", it uses the normal mode, where all validation failures are collected before returning the results.
+	3.How is the Validator bean configured and created in the validator method?
+		Standard answer：In the validator method, a ValidatorFactory is created using Validation.byProvider(HibernateValidator.class).
+		
+trymall\trymall-api\src\main\java\com\linfeng\api\controller\AuthController.java	
+	1.What is the purpose of the login method in the AuthController class?
+		Standard answer： The login method handles the login functionality for the user. It verifies the username and password provided in the LoginParam, retrieves the corresponding user from the database,
+		generates a JWT token for authentication, and returns the token along with the expiration time.
+	2.What does the verify method in the AuthController class do?
+		Standard answer：The verify method handles the verification process for SMS-based login. It checks the type of verification (register or login) and validates if the user exists or not based on the phone number provided. 
+	3.How are exceptions handled in the controller methods?
+		Standard answer：In case of exceptions, the controller methods throw a TrymallException or catch ClientException.
+		
+trymall\trymall-api\src\main\java\com\linfeng\api\controller\TrymallAdminController.java	
+	1.What is the purpose of the login method in the TrymallAdminController class?
+		Standard answer：The login method handles the login functionality for the admin user. It verifies the username and password provided in the LoginParam, retrieves the corresponding admin user from the database, generates a JWT token for authentication, and stores the token in Redis for future authorization.
+	2.What is the role of the @AdminCheck annotation in the logout method?
+		Standard answer： It ensures that only authenticated admin users can access this method. 
+	3.How are exceptions handled in the controller methods?
+		Standard answer：In case of exceptions, the controller methods throw a TrymallException with a specific error message. 
+		
+trymall\trymall-api\src\main\java\com\linfeng\api\intercepter\AdminAuthCheck.java	
+	1.What is the purpose of the preHandle method in the AdminAuthCheck class?
+		Standard answer：The preHandle method is an interceptor that is executed before the handler method. It performs authentication and authorization checks for admin users.
+	2.What is the role of the postHandle method in the AdminAuthCheck class?
+		Standard answer：The postHandle method is empty in the given code and does not perform any specific actions.
+	3.Can you explain how the hasPermission method determines if a user has the required permission level?
+		Standard answer：The hasPermission method in the AdminAuthCheck class determines if a user has the required permission level by comparing the level parameter from the AdminCheck annotation with the scope value retrieved from the JWT token's claims.
+
+trymall\trymall-api\src\main\java\com\linfeng\api\intercepter\AuthCheckInterceptor.java	
+	1.What is the purpose of the setToThreadLocal method in the AuthCheckInterceptor class?
+		Standard answer：The setToThreadLocal method retrieves the user information from the JWT token's claims and sets it in the LocalUser thread-local storage. 
+	2.What is the role of the afterCompletion method in the AuthCheckInterceptor class?
+		Standard answer：The afterCompletion method is executed after the request has been processed and the response has been sent. It is responsible for performing cleanup tasks.
+	3.What does the preHandle method do when an AuthCheck annotation is not present?
+		Standard answer：When an AuthCheck annotation is not present on the handler method, the preHandle method immediately returns true, allowing the request to proceed without any authentication or authorization checks. 
+
+trymall\trymall-api\src\main\java\com\linfeng\api\redis\config\RedisConfig.java	
+	1.What is the purpose of the RedisConfig class in the code?
+		Standard answer：It sets up the Redis cache configuration, defines the Redis template bean for interacting with Redis, and provides custom key generation and error handling for the cache.
+	2.What serialization library is used for serializing/deserializing objects in Redis?
+		Standard answer：The code uses the FastJson library for object serialization and deserialization in Redis.
+	3.What is the purpose of the handleCacheGetError method in the CacheErrorHandler implementation?
+		Standard answer：The handleCacheGetError method is invoked when an error occurs while retrieving data from the Redis cache. In this implementation, it logs the error message along with the cache key that caused the error. 
+		
+trymall\trymall-api\src\main\java\com\linfeng\api\redis\util\RedisUtils.java	
+	1.What is the purpose of the RedisUtils class in the code?
+		Standard answer：The RedisUtils class provides utility methods for interacting with Redis.
+	2.What is the purpose of the expire method in the RedisUtils class?
+		Standard answer：The expire method is used to set an expiration time for a Redis key. It allows specifying a time in seconds after which the key will expire and be automatically removed from the cache.
+	3.What is the purpose of the del method in the RedisUtils class?
+		Standard answer：The del method is used to delete one or more Redis keys from the cache. 
+		
+trymall\trymall-api\src\main\java\com\linfeng\api\service\impl\BrandServiceImpl.java	
+	1.What is the purpose of the brandMapper attribute in the BrandServiceImpl class?
+		Standard answer：The brandMapper attribute is used to interact with the database and perform CRUD operations for the TrymallBrand entity.
+	2.What does the findAllByPage method in the BrandServiceImpl class do?
+		Standard answer：The findAllByPage method retrieves a paginated list of TrymallBrand entities from the database.
+	3.What does the deleteBrandById method in the BrandServiceImpl class do?
+		Standard answer：The deleteBrandById method deletes a TrymallBrand entity from the database based on the provided id. 
+		
+trymall\trymall-api\src\main\java\com\linfeng\api\service\impl\QiNiuServiceImpl.java	
+	1.What is the purpose of the qiniuConfig attribute in the QiNiuServiceImpl class?
+		Standard answer：The qiniuConfig attribute is used to store the configuration settings for the QiNiu service.
+	2.What does the upload method in the QiNiuServiceImpl class do?
+		Standard answer：The upload method is used to upload a file to the QiNiu storage service. It takes a MultipartFile as input, representing the file to be uploaded.
+	3.Does the QiNiuServiceImpl class interact with any other class or method?
+		Standard answer：Yes, the QiNiuServiceImpl class interacts with the qiniuContentService object, which is an instance of the QiniuContentService class.	
+		
+trymall\trymall-api\src\main\java\com\linfeng\api\service\impl\SystemConfigServiceImpl.java	
+	1.What is the purpose of the SystemConfigServiceImpl class?
+		Standard answer：The SystemConfigServiceImpl class is a service implementation that handles system configuration-related operations.
+	2.What does the getData method in the SystemConfigServiceImpl class do?
+		Standard answer：The getData method is used to retrieve the value of a system configuration setting based on its name.
+	3.Does the SystemConfigServiceImpl class have any injected dependencies?
+		Standard answer：Yes, the SystemConfigServiceImpl class has a dependency on the redisUtils object, which is an instance of the RedisUtils class. 
+		
+trymall\trymall-api\src\main\java\com\linfeng\api\service\impl\TrymallIssueServiceImpl.java	
+	1.What is the purpose of the TrymallIssueServiceImpl class?
+		Standard answer：It performs operations related to the TrymallIssue entity.
+	2.What does the findAll method in the TrymallIssueServiceImpl class do?
+		Standard answer：The findAll method retrieves all TrymallIssue entities from the database.
+	3.What is the superclass of the TrymallIssueServiceImpl class?
+		Standard answer：The TrymallIssueServiceImpl class extends the ServiceImpl class.
+		
+trymall\trymall-api\src\main\java\com\linfeng\api\service\impl\TrymallSearchhistoryServiceImpl.java	
+	1.What is the purpose of the TrymallSearchhistoryServiceImpl class?
+		Standard answer：The purpose of the TrymallSearchhistoryServiceImpl class is to provide the implementation for the TrymallSearchhistoryService interface.
+	2.What does the findByUserId method in the TrymallSearchhistoryServiceImpl class do?
+		Standard answer：The findByUserId method retrieves search history records for a specific user. 
+	3.What does the findById method in the TrymallSearchhistoryServiceImpl class do?
+		Standard answer：The findById method in the TrymallSearchhistoryServiceImpl class is used to retrieve a search history record by its ID.
+		
+trymall\trymall-api\src\main\java\com\linfeng\api\service\impl\TrymallSysConfigServiceImpl.java	
+	1.What is the purpose of the TrymallSysConfigServiceImpl class?
+		Standard answer：The purpose of the TrymallSysConfigServiceImpl class is to provide the implementation for the TrymallSysConfigService interface. 
+	2.What does the getSystemConfigVo method in the TrymallSysConfigServiceImpl class do?
+		Standard answer：The getSystemConfigVo method retrieves the system configuration settings as a SystemConfigVo object. 
+	3.What does the create method in the TrymallSysConfigServiceImpl class do?
+		Standard answer：The create method is used to create or update a system configuration setting.
+		
+trymall\trymall-api\src\main\java\com\linfeng\api\service\impl\TrymallSystemMessageServiceImpl.java	
+	1.What is the purpose of the TrymallSystemMessageServiceImpl class?
+		Standard answer：The purpose of the TrymallSystemMessageServiceImpl class is to provide the implementation for the TrymallSystemMessageService interface.
+	2.What does the page method in the TrymallSystemMessageServiceImpl class do?
+		Standard answer：The page method is used for pagination of system messages.
+	3.What does the deleteById method in the TrymallSystemMessageServiceImpl class do?
+		Standard answer： The deleteById method is used to delete a system message by its ID.
+		
+trymall\trymall-api\src\main\java\com\linfeng\api\util\jwt\JwtToken.java	
+	1.What is the purpose of the JwtToken class?
+		Standard answer：The purpose of the JwtToken class is to provide utility methods for working with JWT.
+	2.What does the getClaims method in the JwtToken class do?
+		Standard answer： The getClaims method takes a JWT token as input and verifies its authenticity using the provided jwtKey.
+	3.What does the makeToken method in the JwtToken class do?
+		Standard answer：The makeToken method is an overloaded method used to generate a JWT token. 
+		
+trymall\trymall-api\src\main\java\com\linfeng\api\util\ThrowableUtil.java	
+	1.What is the purpose of the ThrowableUtil class?
+		Standard answer：The purpose of the ThrowableUtil class is to provide a utility method for retrieving the stack trace information from a Throwable object.
+	2.What does the getStackTrace method in the ThrowableUtil class do?
+		Standard answer：The getStackTrace method takes a Throwable object as input and returns the stack trace information as a string. 
+	3.What kind of exception does the getStackTrace method in the ThrowableUtil class throw?
+		Standard answer：The getStackTrace method does not explicitly declare any checked exceptions in its signature. Therefore, it does not throw any checked exceptions
+		
+trymall\trymall-api\src\test\java\com\linfeng\api\service\TestBrandService.java	
+	1.What is the purpose of the TestBrandService class?
+		Standard answer：The purpose of the TestBrandService class is to provide unit tests for the BrandService class.
+	2.What is the role of the @RunWith(SpringRunner.class) annotation in the TestBrandService class?
+		Standard answer：The @RunWith(SpringRunner.class) annotation is used to integrate the Spring test framework with JUnit.
+	3.What does the testAuth method in the TestBrandService class do?
+		Standard answer：The testAuth method is a unit test for authentication-related operations. 
+		
+trymall\trymall-api\src\test\java\com\linfeng\api\service\TestIssueService.java	
+	1.What is the purpose of the TestIssueService class?
+		Standard answer：The purpose of the TestIssueService class is to provide a unit test for the TrymallIssueService class.
+	2.What does the test1() method in the TestIssueService class do?
+		Standard answer：The test1() method is a unit test that calls the findAll() method of the trymallIssueService instance. 
+	3.What is the role of the @RunWith(SpringRunner.class) annotation in the TestIssueService class?
+		Standard answer：The @RunWith(SpringRunner.class) annotation is used to integrate the Spring test framework with JUnit. 		
+		
+trymall\trymall-api\src\test\java\com\linfeng\api\service\TestSearchService.java	
+	1.What is the purpose of the TestSearchService class?
+		Standard answer： The purpose of the TestSearchService class is to provide unit tests for the TrymallSearchhistoryService class. 
+	2.What is the role of the @SpringBootTest annotation in the TestSearchService class?
+		Standard answer：The @SpringBootTest annotation is used to indicate that the class is a Spring Boot test. 
+	3.What is the role of the @RunWith(SpringRunner.class) annotation in the TestSearchService class?
+		Standard answer：The @RunWith(SpringRunner.class) annotation is used to integrate the Spring test framework with JUnit. 
+		
+trymall\trymall-api\src\test\java\com\linfeng\api\service\TestSystemConfigService.java	
+	1.What is the purpose of the TestSystemConfigService class?
+		Standard answer： The purpose of the TestSystemConfigService class is to provide unit tests for the SystemConfigService class.
+	2.What is the role of the @SpringBootTest annotation in the TestSystemConfigService class?
+		Standard answer：The @SpringBootTest annotation is used to indicate that the class is a Spring Boot test.
+	3.How does the @Test annotation work in the TestSystemConfigService class?
+		Standard answer：When JUnit runs the test class, it identifies methods annotated with @Test and executes them as individual test cases.
+
+				
+trymall\trymall-common\src\main\java\com\linfeng\common\domain\system\SystemConfig.java	
+	1.What is the purpose of the SystemConfig class?
+		Standard answer：The purpose of the SystemConfig class is to represent a system configuration entity. 
+	2.What is the significance of the @Data annotation in the SystemConfig class?
+		Standard answer：The @Data annotation is a Lombok annotation that automatically generates getter and setter methods, equals(), hashCode(), and toString() methods for the fields in the SystemConfig class.
+	3.What is the purpose of the copy() method in the SystemConfig class?
+		Standard answer：It is used to copy the property values from a source SystemConfig object to the current object, using the BeanUtil.copyProperties() method from the Hutool library.
+		
+trymall\trymall-common\src\main\java\com\linfeng\common\domain\TrymallAdmin.java	
+	1.What is the purpose of the TrymallAdmin class?
+		Standard answer：The purpose of the TrymallAdmin class is to represent an administrator entity in the Trymall system. 
+	2.What is the significance of the serialVersionUID field in the TrymallAdmin class?
+		Standard answer：The serialVersionUID field is a version control identifier used during the serialization and deserialization process of objects. 
+	3.What is the purpose of the toString() method in the TrymallAdmin class?
+		Standard answer：The toString() method is overridden in the TrymallAdmin class to provide a formatted string representation of the object's state. 
+				
+trymall\trymall-common\src\main\java\com\linfeng\common\domain\TrymallIssue.java	
+	1.What is the purpose of the TrymallIssue class?
+		Standard answer：The TrymallIssue class is used to represent an issue entity in the Trymall system. 
+	2.What is the significance of the @TableId annotation in the TrymallIssue class?
+		Standard answer：The @TableId annotation is used to specify the mapping of the id field to the primary key column in the database table. 
+	3.What is the purpose of the @TableLogic annotation in the TrymallIssue class?
+		Standard answer：The @TableLogic annotation is used to mark a field as a logical deletion flag in the database table.
+		
+trymall\trymall-common\src\main\java\com\linfeng\common\enums\SmsTypeEnum.java	
+	1.What is the purpose of the SmsTypeEnum enum?
+		Standard answer：The SmsTypeEnum enum represents different types of SMS messages in the system.
+	2.What is the significance of the @Getter annotation in the SmsTypeEnum enum?
+		Standard answer：The @Getter annotation is a Lombok annotation that automatically generates getter methods for the enum's fields (value and desc).
+	3.What is the purpose of the toType() method in the SmsTypeEnum enum?
+		Standard answer：The toType() method is a static method defined in the SmsTypeEnum enum. It is used to convert a given value String into the corresponding SmsTypeEnum constant.
+				
+trymall\trymall-common\src\main\java\com\linfeng\common\generation\CodeGeneration.java	
+	1.What is the purpose of the CodeGeneration class?
+		Standard answer：The CodeGeneration class is used to generate code automatically for a specified database table. 
+	2.What is the significance of the GlobalConfig class in the CodeGeneration class?
+		Standard answer：The GlobalConfig class provides global configuration settings for code generation, such as the output directory, whether to override existing files, author information, date type strategy, and naming conventions for generated files.
+	3.What is the purpose of the StrategyConfig class in the CodeGeneration class?
+		Standard answer： The StrategyConfig class allows customization of the code generation strategy. 
+		
+trymall\trymall-common\src\main\java\com\linfeng\common\response\ApiCode.java	
+	1.What is the purpose of the ApiCode enum?
+		Standard answer：The ApiCode enum represents different API response codes and their corresponding messages. 
+	2.What is the significance of the getApiCode() method in the ApiCode enum?
+		Standard answer：The getApiCode() method is a static method defined in the ApiCode enum. It is used to retrieve the ApiCode constant based on a given code. 
+	3.What is the purpose of the code and message fields in the ApiCode enum?
+		Standard answer：The code field represents the numerical code associated with a specific API response. 
+				
+trymall\trymall-db\src\main\java\com\linfeng\db\mapper\TrymallBannerMapper.java	
+	1.What is the purpose of the TrymallBannerMapper interface?
+		Standard answer：The TrymallBannerMapper interface serves as a data access object (DAO) for the TrymallBanner entity.
+	2.What is the significance of the @Select annotation in the getListBySort() and getListByCreateDate() methods?
+		Standard answer：The @Select annotation is a MyBatis annotation used to specify the SQL query that should be executed for the annotated method.
+	3.What is the inheritance relationship between the TrymallBannerMapper interface and the BaseMapper interface?
+		Standard answer：The TrymallBannerMapper interface extends the BaseMapper<TrymallBanner> interface.
+		
+

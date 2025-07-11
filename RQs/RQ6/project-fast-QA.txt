@@ -1,0 +1,833 @@
+project-fast\src\main\java\io\linfeng\common\utils\R.java
+	1.What is attribute "code" used for?
+		Standard answer：The attribute "code" is used to store the status code of the response. It indicates the result or status of an operation, typically in the context of an API response. 
+	2.What does the "error" method do?
+		Standard answer：The "error" method in the R class is used to create a response object indicating an error. 
+	3.Why does this class inherit from HashMap?
+		Standard answer：The class R inherits from HashMap to extend its functionality and customize it for representing response data.
+
+project-fast\src\main\java\io\linfeng\common\utils\PageUtils.java
+	1.What is the purpose of the "totalCount" attribute?
+		Standard answer：The "totalCount" attribute is used to store the total number of records in a dataset or result set.
+	2.What is the functionality of the "PageUtils" constructor that takes an instance of "IPage" as a parameter?
+		 Standard answer：It facilitates the conversion of an "IPage" object to a "PageUtils" object for easier handling and manipulation of paginated data.
+	3.Why does this class inherit from Serializable?
+		Standard answer：The class PageUtils inherits from Serializable to indicate that its objects can be serialized and deserialized, allowing them to be stored, transmitted, or shared between different Java applications.
+
+project-fast\src\main\java\io\linfeng\common\exception\LinfengException.java
+	1.What is the purpose of the "msg" attribute in the LinfengException class?
+		Standard answer：The "msg" attribute in the LinfengException class is used to store the error message associated with the exception.
+	2.What is the functionality of the LinfengException(String msg, int code) constructor?
+		Standard answer：It is used to create an instance of the LinfengException class with a custom error message and an error code. It allows the specification of both the error message and a specific code associated with the exception.
+	3.If an instance of the LinfengException class is thrown, what information can be obtained using the getMsg() and getCode() methods?
+		Standard answer：The getMsg() method allows retrieving the error message associated with the LinfengException instance, providing details about the specific exception that occurred. The getCode() method retrieves the error code associated with the exception, which can be used to identify and handle different types of exceptions accordingly.
+
+project-fast\src\main\java\io\linfeng\modules\sys\controller\AbstractController.java
+	1.What is the purpose of the "logger" attribute in the AbstractController class?
+		Standard answer：The "logger" attribute in the AbstractController class is used for logging messages and events using the SLF4J logging framework. 
+	2.What is the functionality of the getUser() method in the AbstractController class?
+		Standard answer：It uses Apache Shiro's SecurityUtils to access the subject (user) associated with the current request and returns it as a SysUserEntity object. This method provides a convenient way to access the user information within the controller or its subclasses.
+	3.What does the getUserId() method in the AbstractController class return?
+		Standard answer：The getUserId() method in the AbstractController class returns the user ID of the currently authenticated user.
+
+project-fast\src\main\java\io\linfeng\modules\sys\controller\SysUserController.java
+	1.What is the purpose of the "sysUserService" attribute in the SysUserController class?
+		Standard answer：It is used to handle operations related to the management of system users. It is an instance of the SysUserService class, which provides methods for querying, creating, updating, and deleting user information in the system.
+	2.What is the functionality of the password method in the SysUserController class?
+		Standard answer：It is responsible for changing the password of the currently logged-in user. The method performs password validation, encrypts the passwords using the SHA256 algorithm with the user's salt, and updates the password in the system.
+	3.What does the saveUser method call in the save method of the SysUserController class do?
+		Standard answer：The save method in the SysUserController class calls the saveUser method of the sysUserService object to save a new user in the system. 
+
+project-fast\src\main\java\io\linfeng\modules\sys\service\SysUserService.java
+	1.What is the purpose of the queryPage method in the SysUserService interface?
+		Standard answer：The queryPage method in the SysUserService interface is used to retrieve a paginated list of system users based on the provided parameters.
+	2.What does the update method in the SysUserService interface do?
+		Standard answer：It is responsible for updating an existing user's information in the system. 
+	3.What are the benefits of using a map as an input to the queryPage method?
+		Standard answer：Using a map to receive data facilitates parameter expansion.
+
+project-fast\src\main\java\io\linfeng\modules\oss\cloud\CloudStorageService.java
+	1.What is the purpose of the config attribute in the CloudStorageService class?
+		Standard answer：It is used to store the configuration information related to cloud storage.The config attribute holds the necessary credentials, access keys, endpoints, and other relevant details to establish a connection and perform file storage operations in the chosen cloud storage service.
+	2.What is the functionality of the upload method in the CloudStorageService class?
+		Standard answer：The upload method in the CloudStorageService class is responsible for uploading a file to the configured cloud storage service.
+	3.What is the purpose of the uploadSuffix method in the CloudStorageService class?
+		Standard answer：It is used to upload a file to the configured cloud storage service by providing the file data as a byte array and the desired file suffix (file extension) as input. 
+
+project-fast\src\main\java\io\linfeng\modules\sys\service\SysConfigService.java
+	1.What is the purpose of the params attribute in the queryPage()?
+		Standard answer：It is used for passing paging parameters.
+	2.What is the functionality of the saveConfig method in the SysConfigService interface?
+		Standard answer：It is responsible for saving (creating) a new system configuration entry in the underlying storage. 
+	3.What does the updateValueByKey method in the SysConfigService interface do?
+		Standard answer：It is used to update the value of a specific system configuration entry identified by its key.
+
+project-fast\src\main\java\io\linfeng\modules\oss\controller\SysOssController.java
+	1.What is the purpose of the maxSize attribute in the SysOssController class?
+		Standard answer：It is used to store the maximum allowed size (in bytes) for uploading files.
+	2.What is the functionality of the upload method in the SysOssController class?
+		Standard answer：The upload method in the SysOssController class is responsible for handling the file upload functionality. 
+	3.What does the updateValueByKey method in the SysConfigService interface do?
+		Standard answer：It is responsible for updating the value of a specific system configuration entry identified by its key.
+
+project-fast\src\main\java\io\linfeng\modules\sys\service\impl\SysRoleServiceImpl.java
+	1.What does the checkPremis method do?
+		Standard answer：The checkPrems method in the SysRoleServiceImpl class validates if a role's permissions exceed the permissions of the user creating the role, preventing unauthorized privilege escalation.
+	2.What is the purpose of the roleName attribute in the SysRoleServiceImpl class?
+		Standard answer：The roleName attribute in the SysRoleServiceImpl class is used to store the name of a role. 
+	3.What does the deleteBatch method in the SysRoleServiceImpl class do?
+		Standard answer：The deleteBatch method in the SysRoleServiceImpl class is responsible for deleting multiple roles from the system.
+
+project-fast\src\main\java\io\linfeng\modules\sys\controller\SysMenuController.java
+	1.What is the attribute "menuList" used for?
+		Standard answer：The attribute "menuList" is used to store a list of SysMenuEntity objects representing the menu items.
+	2.What does the "save" method in the SysMenuController do?
+		Standard answer：It is used to save a new menu item. It performs data validation on the menu object and then calls the sysMenuService's "save" method to persist the menu in the database.
+	3.What does the "delete" call to the sysMenuService's "delete" method do?
+		Standard answer：The "delete" call to the sysMenuService's "delete" method deletes the menu item with the specified menuId.
+
+
+project-fast\src\main\java\io\linfeng\modules\sys\controller\SysRoleController.java
+	1.What is the purpose of the "sysRoleService" object in the SysRoleController class?
+		Standard answer： The "sysRoleService" object in the SysRoleController class is used to interact with the service layer for performing operations related to role management, such as querying, creating, updating, and deleting roles.
+	2.What does the "save" method in the SysRoleController do?
+		Standard answer：The "save" method in the SysRoleController is used to save a new role. It validates the role entity using ValidatorUtils, sets the createUserId based on the current user, and then calls the sysRoleService's "saveRole" method to persist the role in the system.
+	3.What does the "info" method in the SysRoleController do?
+		Standard answer：The "info" method in the SysRoleController retrieves information about a specific role based on the roleId parameter.
+
+
+
+project-fast\src\main\java\io\linfeng\modules\sys\service\SysRoleService.java
+	1.What is the purpose of the "queryPage" method in the SysRoleService interface?
+		Standard answer：The "queryPage" method is used to retrieve a paginated list of roles based on the provided parameters. It queries the database and returns a PageUtils object containing the role entities and pagination information.
+	2.What does the "saveRole" method in the SysRoleService interface do?
+		Standard answer：The "saveRole" method is used to save a new role in the system. It takes a SysRoleEntity object as a parameter and persists it in the database.
+	3.What does the "queryRoleIdList" method in the SysRoleService interface do?
+		Standard answer：The "queryRoleIdList" method is used to retrieve a list of role IDs created by a specific user.
+
+project-fast\src\main\java\io\linfeng\modules\sys\service\impl\SysUserServiceImpl.java
+	1.What is the purpose of the "sysUserRoleService" object in the SysUserServiceImpl class?
+		Standard answer：The "sysUserRoleService" object is used to interact with the service layer and perform operations related to user-role management. 
+	2.What does the "saveUser" method in the SysUserServiceImpl class do?
+		Standard answer：The "saveUser" method is used to save a new user in the system. 
+	3.What does the "checkRole" method in the SysUserServiceImpl class do?
+		Standard answer：The "checkRole" method is a private helper method that verifies if the user's assigned roles are authorized. 
+
+project-fast\src\main\java\io\linfeng\modules\sys\service\SysUserRoleService.java
+	1.What is the purpose of the "roleIdList" parameter in the "saveOrUpdate" method of the SysUserRoleService interface?
+		Standard answer：The "roleIdList" parameter is used to specify the list of role IDs that will be associated with a user. The method saves or updates the user-role relationships based on this list.
+	2.What does the "queryRoleIdList" method in the SysUserRoleService interface do?
+		Standard answer：The "queryRoleIdList" method is used to retrieve a list of role IDs associated with a specific user. It takes a userId as a parameter and queries the database to fetch the corresponding role IDs. The method returns a List<Long> containing the role IDs.
+	3.What does the "deleteBatch" method in the SysUserRoleService interface do?
+		Standard answer：The "deleteBatch" method is used to delete multiple user-role associations simultaneously. 
+
+project-fast\src\main\java\io\linfeng\modules\sys\service\SysRoleMenuService.java
+	1.What is the purpose of the "menuIdList" parameter in the "saveOrUpdate" method of the SysRoleMenuService interface?
+		Standard answer：The "menuIdList" parameter is used to specify the list of menu IDs that will be associated with a role. 
+	2.What does the "queryMenuIdList" method in the SysRoleMenuService interface do?
+		Standard answer：The "queryMenuIdList" method is used to retrieve a list of menu IDs associated with a specific role. 
+	3.What does the "deleteBatch" method in the SysRoleMenuService interface do?
+		Standard answer：The "deleteBatch" method is used to delete multiple role-menu associations simultaneously. 
+
+project-fast\src\main\java\io\linfeng\modules\sys\controller\SysLoginController.java
+	1.What is the purpose of the "sysUserService" member variable in the SysLoginController class?
+		Standard answer：The "sysUserService" member variable is used to access and manage user-related operations and data within the login controller.
+	2.What does the "login" method in the SysLoginController class do?
+		Standard answer：The "login" method handles the login functionality. It takes a SysLoginForm object as a request body and validates the captcha provided. It then checks the username and password against the stored user information. If the credentials are correct and the account is not locked, a token is generated and saved in the database.
+	3.What does the "logout" method in the SysLoginController class do?
+		Standard answer：The "logout" method handles the logout functionality. It invalidates the user's token by calling the logout method of the sysUserTokenService.
+
+project-fast\src\main\java\io\linfeng\modules\sys\service\ShiroService.java
+	1.What is the purpose of the "getUserPermissions" method in the ShiroService interface?
+		Standard answer：he "getUserPermissions" method is used to retrieve a set of permissions associated with a specific user. It takes a userId as a parameter and returns a Set<String> containing the user's permissions.
+	2.What does the "queryByToken" method in the ShiroService interface do?
+		Standard answer：The "queryByToken" method is used to retrieve a SysUserTokenEntity object based on a provided token. It takes a token as a parameter and queries the database to fetch the corresponding token entity. 
+	3.What does the "queryUser" method in the ShiroService interface do?
+		Standard answer：It is used to retrieve a SysUserEntity object based on a provided userId. It takes a userId as a parameter and queries the database to fetch the corresponding user entity. 
+
+project-fast\src\main\java\io\linfeng\modules\sys\service\impl\SysConfigServiceImpl.java
+	1.What is the purpose of the "sysConfigRedis" member variable in the SysConfigServiceImpl class?
+		Standard answer：The "sysConfigRedis" member variable is used to access and interact with the Redis cache for storing and retrieving SysConfigEntity objects.
+	2.What does the "saveConfig" method in the SysConfigServiceImpl class do?
+		Standard answer：It takes a config object as a parameter and saves it using the "save" method inherited from the ServiceImpl class. Additionally, it also updates the SysConfigEntity object in the sysConfigRedis cache.
+	3.What does the "getValue" method in the SysConfigServiceImpl class do?
+		Standard answer：The "getValue" method is used to retrieve the value associated with a given key from the sysConfigRedis cache.
+
+project-fast\src\main\java\io\linfeng\common\utils\Query.java
+	1.What is the purpose of the "getPage" method in the Query class?
+		Standard answer：The "getPage" method is used to retrieve an instance of IPage<T> (a page of data) based on the provided parameters.
+	2.What does the "getPage" method do to handle sorting of data?
+		Standard answer：The "getPage" method handles sorting of data based on the provided parameters. It checks if there is a specific order field and order direction specified in the params. If present, it adds the corresponding OrderItem (asc or desc) to the Page<T> object. If not specified, it checks for a defaultOrderField. 
+	3.How does the "getPage" method handle SQL injection prevention?
+		Standard answer：The "getPage" method prevents SQL injection by applying SQLFilter.sqlInject method to the orderField parameter obtained from the params.
+
+project-fast\src\main\java\io\linfeng\modules\job\service\ScheduleJobService.java
+	1.What is the purpose of the queryPage method in the ScheduleJobService interface?
+		Standard answer：It is used to retrieve a page of ScheduleJobEntity objects based on the provided parameters.
+	2.What does the update method in the ScheduleJobService interface do?
+		Standard answer：The update method is used to update an existing ScheduleJobEntity object.
+	3.Why does this ScheduleJobService interface inherit IService?
+		Standard answer：The ScheduleJobService interface inherits the IService interface to leverage its common service operations and benefit from the functionality provided by the MyBatis-Plus framework.
+
+project-fast\src\main\java\io\linfeng\modules\sys\controller\SysConfigController.java
+	1.What is the purpose of the sysConfigService member variable in the SysConfigController class?
+		Standard answer： The sysConfigService member variable is used to inject an instance of the SysConfigService interface, which provides the business logic and operations related to system configuration. 
+	2.What does the save method in the SysConfigController class do?
+		Standard answer：The save method is used to save a new system configuration. It takes a SysConfigEntity object as input, representing the configuration to be saved. 
+	3.Why does SysConfigController inherit the AbstractController abstract class?
+		Standard answer：The SysConfigController class inherits the AbstractController abstract class to reuse common functionalities and behaviors defined in the AbstractController and promote code reusability.
+
+project-fast\src\main\java\io\linfeng\modules\sys\service\impl\SysMenuServiceImpl.java
+	1.What is the purpose of the sysUserService member variable in the SysMenuServiceImpl class?
+		Standard answer：The sysUserService member variable is used to inject an instance of the SysUserService interface, which provides the business logic and operations related to user management. 
+	2.What does the getMenuList method in the SysMenuServiceImpl class do?
+		Standard answer：It retrieves the menu list based on the provided menuIdList. It queries the database for all menus that have an ID present in the menuIdList and have a type value of 0 or 1. It then organizes the retrieved menus into a hierarchical structure by mapping each menu to its parent menu.
+	3.What does the delete method in the SysMenuServiceImpl class do?
+		Standard answer：The delete method is responsible for deleting a menu. It first removes the menu from the database by calling the removeById method with the provided menuId. Then, it removes the menu-to-role associations by calling the removeByMap method of the sysRoleMenuService with a map containing the menu ID.
+
+
+project-fast\src\main\java\io\linfeng\modules\sys\redis\SysConfigRedis.java
+	1.What is the purpose of the redisUtils member variable in the SysConfigRedis class?
+		Standard answer：The redisUtils member variable is used to interact with Redis, a key-value data store. It provides utility methods to perform Redis operations such as setting values, retrieving values, and deleting keys. 
+	2.What is the functionality of the saveOrUpdate method in the SysConfigRedis class?
+		Standard answer：The saveOrUpdate method is used to save or update a SysConfigEntity object in Redis.
+	3.What is the function of RedisKeys. getSysConfigKey() ?
+		Standard answer：The RedisKeys.getSysConfigKey function is responsible for generating a unique key used to store or retrieve a SysConfigEntity object in Redis. 
+
+project-fast\src\main\java\io\linfeng\modules\sys\service\SysLogService.java
+	1.What is the purpose of the queryPage method in the SysLogService interface?
+		Standard answer：The queryPage method is used to retrieve a page of system log entries based on the provided parameters. It takes a Map object named params as input, which likely contains criteria and pagination information. 
+	2.Does the SysLogService interface extend any other interface?
+		Standard answer：Yes, the SysLogService interface extends the IService interface. 
+	3.Why does this ScheduleJobService interface inherit IService?
+		Standard answer：The ScheduleJobService interface inherits the IService interface to leverage its common service operations and benefit from the functionality provided by the MyBatis-Plus framework.
+
+
+project-fast\src\main\java\io\linfeng\modules\oss\cloud\OSSFactory.java
+	1.What is the purpose of the sysConfigService attribute in the OSSFactory class?
+		Standard answer：The sysConfigService attribute is used to retrieve the system configuration service. It holds a reference to an instance of the SysConfigService class, which is responsible for retrieving configuration information from the system. 
+	2.What is the functionality of the build method in the OSSFactory class?
+		Standard answer：The build method is used to create and return an instance of the CloudStorageService based on the cloud storage configuration obtained from the sysConfigService.
+	3.Does the OSSFactory class interact with any other classes? If so, how does it interact?
+		Standard answer：Yes, the OSSFactory class interacts with other classes through the sysConfigService. It retrieves the sysConfigService instance using SpringContextUtils.getBean("sysConfigService"), indicating that it relies on Spring's dependency injection mechanism to obtain the instance. 
+
+project-fast\src\main\java\io\linfeng\modules\job\controller\ScheduleJobController.java
+	1.What is the purpose of the scheduleJobService attribute in the ScheduleJobController class?
+		Standard answer：The scheduleJobService attribute is used to inject an instance of the ScheduleJobService class into the ScheduleJobController. 
+	2.What does the save method in the ScheduleJobController class do?
+		Standard answer：The save method is used to save a new schedule job. It receives a ScheduleJobEntity object, which represents the schedule job to be saved. 
+	3.What does the run method in the ScheduleJobController class do?
+		Standard answer：The run method is responsible for executing schedule jobs immediately. It receives an array of jobIds as input, indicating the IDs of the jobs to be run.
+
+project-fast\src\main\java\io\linfeng\modules\sys\service\SysMenuService.java
+	1.What is the purpose of the queryListParentId method in the SysMenuService interface?
+		Standard answer：The queryListParentId method is used to retrieve a list of child menu entities based on the parent menu ID.
+	2.What does the getUserMenuList method in the SysMenuService interface do?
+		Standard answer：The getUserMenuList method is used to retrieve a list of menu entities for a specific user.
+	3.Why does this SysMenuService interface inherit IService?
+		Standard answer：The SysMenuService interface inherits the IService interface to leverage its common service operations and benefit from the functionality provided by the MyBatis-Plus framework.
+
+project-fast\src\main\java\io\linfeng\modules\sys\service\SysUserTokenService.java
+	1.What is the purpose of the createToken method in the SysUserTokenService interface?
+		Standard answer：The createToken method is used to generate a token for a user. It takes a userId parameter, which represents the ID of the user for whom the token is being generated. 
+	2.What does the logout method in the SysUserTokenService interface do?
+		Standard answer：The logout method is used to perform a logout operation for a user. 
+	3.Is there any interaction with other classes in the SysUserTokenService interface?
+		Standard answer：The interface extends the IService interface from the com.baomidou.mybatisplus.extension.service package, which provides generic CRUD operations.
+
+project-fast\src\main\java\io\linfeng\modules\job\service\ScheduleJobLogService.java
+	1.What is the purpose of the attribute params in the queryPage method?
+		Standard answer： The attribute params is used to pass query parameters to the queryPage method for filtering and retrieving specific data during the pagination process.
+	2.What is the functionality of the queryPage method in the ScheduleJobLogService interface?
+		Standard answer：The queryPage method is responsible for performing a paginated query on the schedule job logs.
+	3.What does the invocation of the "IService<ScheduleJobLogEntity>" interface provide to the ScheduleJobLogService interface?
+		Standard answer： The IService<ScheduleJobLogEntity> interface provides service-related operations and functionalities for the ScheduleJobLogService interface. 
+
+project-fast\src\main\java\io\linfeng\modules\oss\service\SysOssService.java
+	1.What is the functionality of the queryPage method in the SysOssService interface?
+		Standard answer：The queryPage method is used to retrieve a specific page of data from the file upload service based on the provided query parameters.
+	2.What is the purpose of the attribute params in the queryPage method?
+		Standard answer：The attribute params is used to pass query parameters for retrieving a specific page of data from the file upload service.
+	3.Is there any interaction with other classes in the SysOssService interface?
+		Standard answer：The interface extends the IService interface from the com.baomidou.mybatisplus.extension.service package, which provides generic CRUD operations.
+
+project-fast\src\main\java\io\linfeng\modules\job\service\impl\ScheduleJobServiceImpl.java
+	1.What is the purpose of the attribute scheduler in the ScheduleJobServiceImpl class?
+		Standard answer：The attribute scheduler is used to interact with the Quartz scheduler library and perform scheduling operations such as creating, updating, and deleting scheduled jobs.
+	2.What is the functionality of the saveJob method in the ScheduleJobServiceImpl class?
+		Standard answer：The saveJob method is responsible for saving a new schedule job. It sets the job's creation time, status, and then saves it using the save method. 
+	3.If the ScheduleJobServiceImpl class calls the deleteScheduleJob method from the ScheduleUtils class, what does the method do?
+		Standard answer：The deleteScheduleJob method, when called from the ScheduleJobServiceImpl class, removes a scheduled job identified by the provided jobId from the Quartz scheduler. It deletes the corresponding job and associated triggers, effectively canceling the execution of the job.
+
+project-fast\src\main\java\io\linfeng\modules\sys\service\SysCaptchaService.java
+	1.What is the purpose of the attribute uuid in the SysCaptchaService interface?
+		Standard answer：The attribute uuid is used to uniquely identify a captcha image request. It ensures that the generated captcha image corresponds to the correct user session or request.
+	2.What is the functionality of the getCaptcha method in the SysCaptchaService interface?
+		Standard answer：The getCaptcha method is responsible for generating and retrieving a captcha image. It takes a uuid parameter to associate the captcha image with a specific user session or request.
+	3.If the SysCaptchaService interface calls the validate method from the IService interface, what does the method do?
+		Standard answer： The validate method, when called from the SysCaptchaService interface, is likely used to validate a user-provided captcha code against the captcha associated with the provided uuid.
+
+project-fast\src\main\java\io\linfeng\modules\oss\cloud\QcloudCloudStorageService.java
+	1.What is the purpose of the client attribute in the QcloudCloudStorageService class?
+		Standard answer：The client attribute is used to establish a connection with the Tencent Cloud Object Storage (COS) service. It provides the necessary functionality to upload files and interact with the COS API.
+	2.What is the functionality of the upload method in the QcloudCloudStorageService class?
+		Standard answer：The upload method is responsible for uploading a file to the Tencent Cloud Object Storage. It takes the file data and the desired path as parameters and performs the necessary operations to upload the file to the configured bucket. 
+	3.If the QcloudCloudStorageService class encounters an exception while uploading a file, what type of exception is thrown?
+		Standard answer：If an exception occurs during file upload in the QcloudCloudStorageService class, it throws a LinfengException. This exception is a custom exception defined in the codebase and is used to handle errors related to file uploads.
+
+project-fast\src\main\java\io\linfeng\modules\job\utils\ScheduleUtils.java
+	1.What is the purpose of the JOB_NAME attribute in the ScheduleUtils class?
+		Standard answer：The JOB_NAME attribute is used as a prefix for generating unique identifiers for jobs and triggers in the Quartz scheduler. It ensures that each job and trigger has a distinct name.
+	2.What is the functionality of the createScheduleJob method in the ScheduleUtils class?
+		Standard answer：It is used to create and schedule a new job in the Quartz scheduler. It takes a ScheduleJobEntity object as input, which contains information about the job, such as the cron expression, and creates a corresponding JobDetail and CronTrigger. 
+	3.What does the triggerJob method call do in the run method of the ScheduleUtils class?
+		Standard answer：The triggerJob method call triggers the immediate execution of a scheduled job in the Quartz scheduler. It retrieves the job identified by the given jobId and executes it immediately, disregarding its scheduled time.
+
+project-fast\src\main\java\io\linfeng\modules\oss\cloud\AliyunCloudStorageService.java
+	1.What is the purpose of the client attribute in the AliyunCloudStorageService class?
+		Standard answer：The client attribute is used to create a connection to the Alibaba Cloud Object Storage Service (OSS) using the provided access credentials. 
+	2.What is the functionality of the upload method in the AliyunCloudStorageService class?
+		Standard answer：The upload method is used to upload a file to the Alibaba Cloud Object Storage Service (OSS). It takes either a byte array or an input stream containing the file data, along with a specified path, and uses the client to store the file in the configured OSS bucket. 
+	3.What does the init method call do in the constructor of the AliyunCloudStorageService class?
+		Standard answer：The init method call initializes the client attribute by creating an instance of the OSSClient class from the Alibaba Cloud OSS SDK. It uses the endpoint, access key ID, and access key secret provided in the config object to establish a connection with the Alibaba Cloud OSS.
+
+project-fast\src\main\java\io\linfeng\modules\oss\cloud\QiniuCloudStorageService.java
+	1.What is the purpose of the uploadManager attribute in the QiniuCloudStorageService class?
+		Standard answer：The uploadManager attribute is used to manage and perform file uploads to the Qiniu Cloud Storage service. It provides methods for uploading files in various formats, such as byte arrays or input streams, and handles the communication with the Qiniu storage backend.
+	2.What is the functionality of the upload method in the QiniuCloudStorageService class?
+		Standard answer：The upload method is responsible for uploading a file to the Qiniu Cloud Storage service.
+	3.What does the create method call do in the Auth class of the Qiniu SDK?
+		Standard answer：The create method call in the Auth class is used to create an authentication object for accessing the Qiniu Cloud Storage service. It takes the Qiniu access key and secret key as parameters and generates an authentication token that can be used for various operations, such as uploading files. 
+
+project-fast\src\main\java\io\linfeng\common\utils\DateUtils.java
+	1.What is the purpose of the DATE_PATTERN attribute in the DateUtils class?
+		Standard answer：The DATE_PATTERN attribute stores the format pattern for dates in the DateUtils class. It is set to "yyyy-MM-dd" and is used for formatting and parsing dates in the specified format throughout the class.
+	2.What is the functionality of the addDateMonths method in the DateUtils class?
+		Standard answer：The addDateMonths method is used to add or subtract a specified number of months to a given date. It takes a Date object and the number of months as parameters and returns a formatted string representation of the resulting date and time in the format "yyyy-MM-dd HH:mm:ss".
+	3.What does the getWeekStartAndEnd method in the DateUtils class rely on from the DateTime class?
+		Standard answer：The getWeekStartAndEnd method in the DateUtils class relies on the DateTime class to calculate the start and end dates of a given week.
+
+project-fast\src\main\java\io\linfeng\modules\sys\service\impl\SysUserTokenServiceImpl.java
+	1.What is the purpose of the EXPIRE attribute in the SysUserTokenServiceImpl class?
+		Standard answer：The EXPIRE attribute represents the expiration time in seconds for a generated token. It is set to 12 hours (3600 * 12 seconds) and determines the validity duration of the token.
+	2.What is the functionality of the createToken method in the SysUserTokenServiceImpl class?
+		Standard answer：The createToken method is used to create a token for a given user. It generates a random token value using TokenGenerator.generateValue(), sets the current time as the creation/update time, calculates the expiration time by adding the predefined expiration duration, and stores or updates the token entity in the database accordingly. 
+	3.What is the purpose of the updateById method call in the logout method of the SysUserTokenServiceImpl class?
+		Standard answer：The updateById method call is used to update the token for a specific user when logging out. 
+
+project-fast\src\main\java\io\linfeng\common\utils\RedisUtils.java
+	1.What is the purpose of the redisTemplate attribute in the RedisUtils class?
+		Standard answer：The redisTemplate attribute is used as a Redis client for executing various Redis operations. It is responsible for interacting with the Redis server, sending commands, and receiving responses.
+	2.What is the functionality of the set method in the RedisUtils class?
+		Standard answer：The set method is used to store a key-value pair in Redis. It takes a key and a value as parameters and optionally accepts an expiration time in seconds. 
+	3.What is the purpose of the delete method in the RedisUtils class?
+		Standard answer：The delete method is used to remove a key and its associated value from Redis. It takes a key as a parameter and calls the redisTemplate.delete(key) method to delete the key-value pair from the Redis cache. 
+
+project-fast\src\main\java\io\linfeng\common\validator\ValidatorUtils.java
+	1.What is the purpose of the validator attribute?
+		Standard answer：The validator attribute is used to perform validation on objects using Hibernate Validator.
+	2.What is the functionality of the validateEntity method?
+		Standard answer：The validateEntity method validates an object against specified groups of constraints using the validator. If any constraint violations are found, it throws a LinfengException with the corresponding error messages.
+	3.What does the method call removeAllPlots do?
+		Standard answer：The method call removeAllPlots removes all plots from a plotter object or container, effectively clearing the plotter for further use.
+
+project-fast\src\main\java\io\linfeng\modules\sys\service\impl\SysCaptchaServiceImpl.java
+	1.What is the purpose of the producer attribute?
+		Standard answer：The producer attribute is used to generate image-based captchas for the verification code.
+	2.What is the functionality of the validate method?
+		Standard answer：The validate method checks if the provided code matches the captcha associated with the given uuid. If the captcha exists, matches the code, and has not expired, it returns true; otherwise, it returns false.
+	3.What does the removeById method call do?
+		Standard answer：The removeById method call deletes the captcha entity with the specified uuid from the database. In this context, it removes the captcha entry associated with the provided uuid.
+
+project-fast\src\main\java\io\linfeng\modules\job\controller\ScheduleJobLogController.java
+	1.What is the purpose of the scheduleJobLogService attribute?
+		Standard answer：The scheduleJobLogService attribute is used to interact with the service layer to perform operations related to schedule job logs, such as querying and retrieving log information.
+	2.What is the functionality of the list method?
+		Standard answer：The list method retrieves a list of schedule job logs based on the provided parameters. 
+	3.What does the getById method call do in the info method?
+		Standard answer：The getById method call retrieves the schedule job log entity with the specified logId from the scheduleJobLogService.
+
+project-fast\src\main\java\io\linfeng\modules\sys\oauth2\OAuth2Realm.java
+	1.What is the purpose of the shiroService attribute?
+		Standard answer：The shiroService attribute is used to interact with the ShiroService class, which provides functionality related to authentication and authorization in the Shiro framework.
+	2.What is the functionality of the doGetAuthorizationInfo method?
+		Standard answer：The doGetAuthorizationInfo method is responsible for retrieving the authorization information, such as the user's permissions, based on the provided principals (user information).
+	3.What does the queryByToken method call do in the doGetAuthenticationInfo method?
+		Standard answer：The queryByToken method call retrieves the user token entity associated with the provided access token from the shiroService.
+
+project-fast\src\main\java\io\linfeng\modules\sys\dao\SysUserDao.java
+	1.What is the purpose of the queryAllPerms method?
+		Standard answer：The queryAllPerms method is used to retrieve a list of all permissions associated with a user based on the provided userId.
+	2.What is the functionality of the queryByUserName method?
+		Standard answer：The queryByUserName method is used to retrieve the system user entity based on the provided username. It searches the database for a user with the specified username and returns the corresponding SysUserEntity.
+	3.What does the queryAllMenuId method do?
+		Standard answer：The queryAllMenuId method is used to retrieve a list of all menu IDs associated with a user. It retrieves the menu IDs from the database based on the provided userId and returns them as a list of Long values.
+
+project-fast\src\main\java\io\linfeng\modules\sys\dao\SysUserTokenDao.java
+	1.What is the purpose of the queryByToken method?
+		Standard answer：The queryByToken method is used to retrieve the system user token entity based on the provided token.
+	2.Does the SysUserTokenDao interface extend any other class or interface?
+		Standard answer：Yes, the SysUserTokenDao interface extends the BaseMapper interface from the MyBatis-Plus framework. 
+	3.What functionality does the BaseMapper interface provide?
+		Standard answer：The BaseMapper interface provides common database operations, such as inserting, updating, deleting, and querying, for the entity type specified as its generic parameter.
+
+
+project-fast\src\main\java\io\linfeng\modules\job\service\impl\ScheduleJobLogServiceImpl.java
+	1.What is the purpose of the params parameter in the queryPage method?
+		Standard answer：he params parameter is used to pass additional parameters for the page query operation. It is a Map that can contain various parameters, such as the jobId used for filtering the schedule job logs.
+	2.What does the queryPage method do?
+		Standard answer：The queryPage method is responsible for querying and retrieving a paginated list of ScheduleJobLogEntity objects. 
+	3.Which class does the ScheduleJobLogServiceImpl class extend?
+		Standard answer：It extends the ServiceImpl<ScheduleJobLogDao, ScheduleJobLogEntity> class. This base class is from the MyBatis-Plus framework and provides default implementations for common service operations.
+
+project-fast\src\main\java\io\linfeng\modules\oss\service\impl\SysOssServiceImpl.java
+	1.What is the purpose of the params parameter in the queryPage method?
+		Standard answer：The params parameter is used to pass additional parameters for the page query operation.
+	2.What does the queryPage method do?
+		Standard answer：The queryPage method is responsible for querying and retrieving a paginated list of SysOssEntity objects.
+	3.Which class does the SysOssServiceImpl class extend?
+		Standard answer：The SysOssServiceImpl class extends the ServiceImpl<SysOssDao, SysOssEntity> class. This base class is from the MyBatis-Plus framework and provides default implementations for common service operations.
+
+project-fast\src\main\java\io\linfeng\modules\sys\service\impl\SysLogServiceImpl.java
+	1.What does the queryPage method do?
+		Standard answer：The queryPage method is responsible for querying and retrieving a paginated list of SysLogEntity objects.
+	2.What is the purpose of the params parameter in the queryPage method?
+		Standard answer：The params parameter is used to pass additional parameters for the page query operation. 
+	3.Which class does the SysLogServiceImpl class extend?
+		Standard answer：The SysLogServiceImpl class extends the ServiceImpl<SysLogDao, SysLogEntity> class.
+
+project-fast\src\main\java\io\linfeng\modules\sys\service\impl\SysUserRoleServiceImpl.java
+	1.What is the purpose of the roleIdList parameter in the saveOrUpdate method?
+		Standard answer：The roleIdList parameter is used to specify a list of role IDs associated with a user. It represents the roles that need to be saved or updated for a particular user.
+	2.What does the saveOrUpdate method do?
+		Standard answer：The saveOrUpdate method is responsible for saving or updating the user-role relationship.
+	3.Which class does the SysUserRoleServiceImpl class extend?
+		Standard answer：It extends the ServiceImpl<SysUserRoleDao, SysUserRoleEntity> class. This base class is from the MyBatis-Plus framework and provides default implementations for common service operations. 
+
+project-fast\src\main\java\io\linfeng\modules\job\utils\ScheduleJob.java
+	1.What is the purpose of the logger attribute?
+		Standard answer： The logger attribute is used for logging messages and events within the ScheduleJob class. It is an instance of the Logger class from the SLF4J logging framework and is used to output log statements during the execution of the job.
+	2.What does the executeInternal method do?
+		Standard answer：It is the main method that gets executed when the scheduled job is triggered. It retrieves the ScheduleJobEntity object from the job context, obtains the ScheduleJobLogService bean from the Spring context, creates a new ScheduleJobLogEntity object to store the execution details, and starts tracking the execution time.
+	3.Which class is responsible for retrieving the ScheduleJobLogService bean?
+		Standard answer：The SpringContextUtils class is responsible for retrieving the ScheduleJobLogService bean from the Spring context. It calls the getBean method of SpringContextUtils and passes the bean name as a parameter to obtain the instance of ScheduleJobLogService.
+
+project-fast\src\main\java\io\linfeng\common\aspect\SysLogAspect.java
+	1.What is the purpose of the sysLogService attribute?
+		Standard answer：The sysLogService attribute is used to access the SysLogService bean, which provides functionality for saving system logs.
+	2.What is the purpose of the around method?
+		Standard answer：The around method is an aspect advice that surrounds the execution of methods annotated with @SysLog. 
+	3.Which classes are used to retrieve the IP address and the username?
+		Standard answer：The IPUtils class is used to retrieve the IP address by calling the getIpAddr method, passing the HttpServletRequest obtained from HttpContextUtils. 
+
+project-fast\src\main\java\io\linfeng\modules\sys\dao\SysMenuDao.java
+	1.What is the purpose of the BaseMapper<SysMenuEntity> attribute?
+		Standard answer： The BaseMapper<SysMenuEntity> attribute is used to specify the base mapper interface that SysMenuDao extends. 
+	2.What is the purpose of the queryListParentId method?
+		Standard answer：The queryListParentId method is used to retrieve a list of child menu entities based on the parent menu ID. 
+	3.Is there any interaction with other classes in the SysMenuDao interface?
+		Standard answer：No, based on the provided code, there is no direct interaction with other classes in the SysMenuDao interface. 
+
+project-fast\src\main\java\io\linfeng\common\utils\RedisKeys.java
+	1.What is the purpose of the attribute in this class?
+		Standard answer：There are no attributes or member variables in the RedisKeys class. 
+	2.What is the purpose of the getSysConfigKey method?
+		Standard answer：The getSysConfigKey method is used to generate a specific key format for storing system configuration values in Redis.
+	3.Is there any interaction with other classes in the RedisKeys class?
+		Standard answer：No
+
+project-fast\src\main\java\io\linfeng\modules\sys\oauth2\OAuth2Filter.java
+	1.What is the purpose of the RequestMethod.OPTIONS attribute?
+		Standard answer： The RequestMethod.OPTIONS attribute represents the HTTP OPTIONS method.
+	2.What is the purpose of the onAccessDenied method?
+		Standard answer： The onAccessDenied method is responsible for handling the access denied scenario. It is called when the incoming request does not have a valid token. 
+	3.Is there any interaction with other classes in the OAuth2Filter class?
+		Standard answer：It uses methods from HttpContextUtils to retrieve the origin and Gson to convert objects into JSON format. 
+
+project-fast\src\main\java\io\linfeng\common\xss\HTMLFilter.java
+	1.What is the purpose of the vAllowed attribute?
+		Standard answer： The vAllowed attribute is a map that stores a set of allowed HTML elements along with their corresponding allowed attributes. 
+	2.What does the stripComment method do?
+		Standard answer：It is a boolean flag that determines whether comments should be allowed in the input string or not. 
+	3.Is there any interaction with other classes in the HTMLFilter class?
+		Standard answer：No, there is no explicit interaction with other classes in the given HTMLFilter class.
+
+project-fast\src\main\java\io\linfeng\modules\sys\controller\SysLogController.java
+	1.What is the purpose of the sysLogService attribute?
+		Standard answer： The sysLogService attribute is used to inject an instance of the SysLogService class into the SysLogController class. 
+	2.What does the list method do?
+		Standard answer：The list method is responsible for handling the HTTP GET request to retrieve a list of system logs. 
+	3.Is there any interaction with other classes in the SysLogController class?
+		Standard answer：Yes, the SysLogController class interacts with the SysLogService class. It injects an instance of SysLogService using the @Autowired annotation.
+
+project-fast\src\main\java\io\linfeng\common\xss\XssHttpServletRequestWrapper.java
+	1.What is the purpose of the orgRequest attribute?
+		Standard answer：The orgRequest attribute is used to store the original, unwrapped HttpServletRequest object that is passed to the XssHttpServletRequestWrapper constructor.
+	2.What does the getParameterMap method do?
+		Standard answer：The getParameterMap method overrides the corresponding method in the HttpServletRequestWrapper class.
+	3.Is there any interaction with other classes in the XssHttpServletRequestWrapper class?
+		Standard answer：Yes, the XssHttpServletRequestWrapper class interacts with the HTMLFilter class. It creates an instance of HTMLFilter called htmlFilter and uses it to perform HTML filtering in the xssEncode method.
+
+project-fast\src\main\java\io\linfeng\common\exception\LinfengExceptionHandler.java
+	1.What is the purpose of the attribute logger in the LinfengExceptionHandler class?
+		Standard answer：The logger attribute is used for logging messages and errors in the exception handler class.
+	2.What is the functionality of the handleRRException method in the LinfengExceptionHandler class?
+		Standard answer：The handleRRException method handles the custom exception LinfengException by creating a response object (R) with the corresponding error code and message.
+	3.What does the method call handlerNoFoundException do in the LinfengExceptionHandler class?
+		Standard answer：The handlerNoFoundException method handles the NoHandlerFoundException by logging the error message and returning a response object (R) with a 404 error code and a message indicating that the requested path does not exist.
+
+project-fast\src\main\java\io\linfeng\modules\sys\service\impl\SysRoleMenuServiceImpl.java
+	1.What is the purpose of the attribute baseMapper in the SysRoleMenuServiceImpl class?
+		Standard answer：The baseMapper attribute is used to access the underlying data access object (DAO) methods for performing database operations related to the SysRoleMenuEntity entity.
+	2.What is the functionality of the saveOrUpdate method in the SysRoleMenuServiceImpl class?
+		Standard answer：The saveOrUpdate method is responsible for saving or updating the role-menu relationship. 
+	3.What does the queryMenuIdList method do in the SysRoleMenuServiceImpl class?
+		Standard answer：The queryMenuIdList method retrieves a list of menu IDs associated with a specific role by invoking the queryMenuIdList method of the baseMapper object.
+
+project-fast\src\main\java\io\linfeng\common\xss\SQLFilter.java
+	1.What is the purpose of the keywords array in the SQLFilter class?
+		Standard answer：The keywords array contains a list of forbidden SQL keywords that are checked against the input string to identify any potential SQL injection attempts.
+	2.What is the functionality of the sqlInject method in the SQLFilter class?
+		Standard answer：The sqlInject method performs SQL injection filtering by removing specific characters and checking for the presence of forbidden SQL keywords in the input string.
+	3.Is there any interaction with other classes in the SQLFilter class?
+		Standard answer：No.
+
+project-fast\src\main\java\io\linfeng\common\validator\Assert.java
+	1.What is the purpose of the message parameter in the isBlank method of the Assert class?
+		Standard answer：The message parameter is used to provide an error message that is thrown as a LinfengException when the input string is blank
+	2.What is the functionality of the isBlank method in the Assert class?
+		Standard answer：The isBlank method checks if a given string is blank (empty or contains only whitespace). 
+	3.Is there any interaction with other classes in the Assert class?
+		Standard answer：No, based on the provided code, there is no interaction with other classes in the Assert class. It provides static methods for performing data validation checks and throws a custom LinfengException when the validation fails.
+
+project-fast\src\main\java\io\linfeng\modules\job\task\ITask.java
+	1.What is the purpose of the params parameter in the run method of the ITask interface?
+		Standard answer：The params parameter is used to pass parameters to the implementation of the scheduled task. 
+	2.What is the functionality of the run method in the ITask interface?
+		Standard answer：The run method defines the contract for executing a scheduled task. 
+	3.Is there any interaction with other classes in the ITask interface?
+		Standard answer：No, based on the provided code, the ITask interface does not have any direct interaction with other classes. 
+
+project-fast\src\main\java\io\linfeng\common\utils\HttpContextUtils.java
+	1.What is the purpose of the request variable in the getDomain method of the HttpContextUtils class?
+		Standard answer：The request variable is used to obtain the HttpServletRequest object, which represents the current HTTP request. It is used to retrieve the request URL and extract the domain from it.
+	2.What is the functionality of the getDomain method in the HttpContextUtils class?
+		Standard answer：The getDomain method retrieves the current request URL using the HttpServletRequest object and extracts the domain from it.
+	3.Is there any interaction with other classes in the HttpContextUtils class?
+		Standard answer：Yes, the HttpContextUtils class interacts with the RequestContextHolder and ServletRequestAttributes classes from the Spring Framework. 
+
+project-fast\src\main\java\io\linfeng\common\utils\FileCheckUtil.java
+	1.What is the purpose of the maxSize parameter in the checkSize method of the FileCheckUtil class?
+		Standard answer：The maxSize parameter indicates the maximum allowed size for a file. It is used to compare against the size parameter and determine if the file exceeds the specified size limit.
+	2.What is the functionality of the checkSize method in the FileCheckUtil class?
+		Standard answer：The checkSize method validates the size of a file by comparing it against the maximum allowed size. If the size parameter exceeds the calculated maximum size based on maxSize, it throws a LinfengException indicating that the uploaded file exceeds the specified size limit.
+	3.Is there any interaction with other classes in the FileCheckUtil class?
+		Standard answer：No, based on the provided code, there is no interaction with other classes in the FileCheckUtil class. It performs the file size check independently and throws a custom LinfengException if the file size exceeds the specified limit.
+		
+
+project-fast\src\main\java\io\linfeng\modules\sys\oauth2\TokenGenerator.java
+	1.What is the purpose of the hexCode attribute in the TokenGenerator class?
+		Standard answer：The hexCode attribute is used as a lookup table for converting bytes to their corresponding hexadecimal representation. 
+	2.What is the functionality of the toHexString method in the TokenGenerator class?
+		Standard answer：The toHexString method takes a byte array as input and converts it to a hexadecimal string representation.
+	3.Is there any interaction with other classes in the TokenGenerator class?
+		Standard answer：Yes, the TokenGenerator class interacts with the MessageDigest class from the Java Security API and the LinfengException class from the io.linfeng.common.exception package.
+
+project-fast\src\main\java\io\linfeng\common\utils\MapUtils.java
+	1.What is the purpose of extending the HashMap<String, Object> class in the MapUtils class?
+		Standard answer：The purpose of extending the HashMap<String, Object> class is to create a utility class that provides additional methods and functionalities specific to maps.
+	2.What is the functionality of the put method in the MapUtils class?
+		Standard answer：The put method in the MapUtils class overrides the put method of the HashMap class. It adds a key-value pair to the map, similar to the put method in HashMap.
+	3.Is there any interaction with other classes in the MapUtils class?
+		Standard answer：No.
+
+project-fast\src\main\java\io\linfeng\modules\sys\oauth2\OAuth2Token.java
+	1.What is the purpose of the token attribute in the OAuth2Token class?
+		Standard answer：The token attribute is used to store the authentication token associated with the OAuth2 authentication process. It represents the token used for authentication and authorization purposes.
+	2.What is the functionality of the getPrincipal method in the OAuth2Token class?
+		Standard answer：The getPrincipal method is implemented from the AuthenticationToken interface. It returns the principal of the authentication token, which in this case is the value of the token attribute. 
+	3.Is there any interaction with other classes in the OAuth2Token class?
+		Standard answer：No, based on the provided code, there is no direct interaction with other classes in the OAuth2Token class. It implements the AuthenticationToken interface from the Apache Shiro framework
+
+project-fast\src\main\java\io\linfeng\modules\job\task\TestTask.java
+	1.What is the purpose of the logger attribute in the TestTask class?
+		Standard answer：The logger attribute is used for logging messages within the TestTask class.
+	2.What is the functionality of the run method in the TestTask class?
+		Standard answer：The run method is implemented from the ITask interface. It represents the task that will be executed when triggered. 
+	3.Is there any interaction with other classes in the TestTask class?
+		Standard answer：The TestTask class interacts with other classes. It imports the Logger and LoggerFactory classes from the org.slf4j package.
+
+project-fast\src\main\java\io\linfeng\common\xss\XssFilter.java
+	1.What is the purpose of the xssRequest variable in the XssFilter class?
+		Standard answer：The xssRequest variable is used to create an instance of the XssHttpServletRequestWrapper class, which is a wrapper around the original HttpServletRequest.
+	2.What is the functionality of the doFilter method in the XssFilter class?
+		Standard answer：The doFilter method is implemented from the Filter interface. It is responsible for intercepting incoming requests and modifying them before passing them along the filter chain.
+	3.Is there any interaction with other classes in the XssFilter class?
+		Standard answer： Yes, the XssFilter class interacts with another class, namely XssHttpServletRequestWrapper. The XssHttpServletRequestWrapper class is a custom implementation of HttpServletRequestWrapper that overrides certain methods to sanitize user input and prevent XSS attacks.
+
+project-fast\src\main\java\io\linfeng\common\utils\SpringContextUtils.java
+	1.What is the purpose of the applicationContext attribute in the SpringContextUtils class?
+		Standard answer：The applicationContext attribute is used to hold the instance of the Spring application context. 
+	2.What is the functionality of the getBean method in the SpringContextUtils class?
+		Standard answer：The getBean method is used to retrieve a bean instance from the Spring application context based on the provided bean name. It provides a convenient way to access beans by their names.
+	3.Is there any interaction with other classes in the SpringContextUtils class?
+		Standard answer：The SpringContextUtils class interacts with the ApplicationContext interface and its implementation classes from the Spring framework.
+
+project-fast\src\main\java\io\linfeng\datasource\config\DynamicContextHolder.java
+	1.What is the purpose of the CONTEXT_HOLDER attribute in the DynamicContextHolder class?
+		Standard answer：The CONTEXT_HOLDER attribute is a ThreadLocal variable used to store a Deque (double-ended queue) of data source names. It serves as a context holder for managing multiple data sources in a multi-threaded environment. Each thread has its own separate Deque instance to track the data source stack.
+	2.What is the functionality of the peek method in the DynamicContextHolder class?
+		Standard answer：The peek method retrieves the topmost data source name from the thread-specific Deque stored in the CONTEXT_HOLDER.
+	3.Is there any interaction with other classes in the DynamicContextHolder class?
+		Standard answer： No.
+
+project-fast\src\main\java\io\linfeng\common\utils\ShiroUtils.java
+	1.What is the purpose of the getUserEntity method in the ShiroUtils class?
+		Standard answer：The getUserEntity method is used to retrieve the currently authenticated user entity (SysUserEntity) from the Subject associated with the current security context. 
+	2.What is the functionality of the getKaptcha method in the ShiroUtils class?
+		Standard answer：The getKaptcha method retrieves the value of a captcha stored in the session using the provided key. 
+	3.Is there any interaction with other classes in the ShiroUtils class?
+		Standard answer：Yes, the ShiroUtils class interacts with other classes from the io.linfeng and org.apache.shiro packages.
+
+project-fast\src\main\java\io\linfeng\common\utils\IPUtils.java
+	1.What is the purpose of the logger attribute in the IPUtils class?
+		Standard answer： The logger attribute is used to create an instance of the Logger class from the SLF4J (Simple Logging Facade for Java) framework.
+	2.What is the functionality of the getIpAddr method in the IPUtils class?
+		Standard answer：The getIpAddr method is used to retrieve the IP address of the client making the HTTP request. It handles scenarios where the application is behind a reverse proxy or load balancer.
+	3.Is there any interaction with other classes in the IPUtils class?
+		Standard answer：No.
+
+project-fast\src\main\java\io\linfeng\config\ShiroConfig.java
+	1.What is the purpose of the securityManager attribute in the ShiroConfig class?
+		Standard answer：The securityManager attribute is used to configure and manage the security-related components in Apache Shiro. 
+	2.What is the functionality of the shiroFilter method in the ShiroConfig class?
+		Standard answer：The shiroFilter method is responsible for creating and configuring the ShiroFilterFactoryBean instance. 
+	3.Does the ShiroConfig class interact with any other classes from the io.linfeng.modules.sys.oauth2 package?
+		Standard answer：Yes, the ShiroConfig class interacts with other classes from the io.linfeng.modules.sys.oauth2 package. It imports the io.linfeng.modules.sys.oauth2.OAuth2Filter and io.linfeng.modules.sys.oauth2.OAuth2Realm classes.
+
+project-fast\src\main\java\io\linfeng\common\aspect\RedisAspect.java
+	1.What is the purpose of the open attribute in the RedisAspect class?
+		Standard answer：The open attribute is used to indicate whether the Redis cache is enabled or disabled. Its value is retrieved from the Spring application configuration using the @Value annotation. 
+	2.What is the functionality of the around method in the RedisAspect class?
+		Standard answer：The around method is an aspect method that intercepts and wraps the execution of methods in the io.linfeng.common.utils.RedisUtils class. 
+	3.What is the purpose of the around method in the RedisAspect class?
+		Standard answer：It wraps the intercepted method execution with additional behavior. Specifically, it checks if the Redis cache is enabled.
+
+project-fast\src\main\java\io\linfeng\datasource\aspect\DataSourceAspect.java
+	1.What is the purpose of the dataSourcePointCut method in the DataSourceAspect class?
+		Standard answer：The dataSourcePointCut method is used to define a pointcut for method interception in the DataSourceAspect class.
+	2.What is the functionality of the around method in the DataSourceAspect class?
+		Standard answer：The around method in the DataSourceAspect class serves as an aspect method that intercepts the execution of methods matched by the dataSourcePointCut pointcut.
+	3.Does the DataSourceAspect class interact with other classes?
+		Standard answer： It imports the io.linfeng.datasource.annotation.DataSource annotation, which is used to annotate target classes or methods to indicate the specific datasource to be used.
+
+project-fast\src\main\java\io\linfeng\datasource\properties\DataSourceProperties.java
+	1.What is the purpose of the driverClassName attribute in the DataSourceProperties class?
+		Standard answer：The driverClassName attribute in the DataSourceProperties class is used to store the fully qualified name of the JDBC driver class for the corresponding datasource.
+	2.What is the functionality of the setMaxActive method in the DataSourceProperties class?
+		Standard answer：The setMaxActive method in the DataSourceProperties class is used to set the maximum number of active connections that can be allocated from the connection pool.
+	3.Does the DataSourceProperties class interact with other classes?
+		Standard answer：It is a standalone class that defines properties related to a datasource.
+
+project-fast\src\main\java\io\linfeng\config\FilterConfig.java
+	1.What is the purpose of the shiroFilterRegistration method in the FilterConfig class?
+		Standard answer：The shiroFilterRegistration method is used to register the Shiro Filter in the servlet container. 
+	2.What is the functionality of the xssFilterRegistration method in the FilterConfig class?
+		Standard answer：It is used to register the XssFilter in the servlet container. It creates a FilterRegistrationBean and configures it with the necessary settings such as the filter instance, URL patterns, and order.
+	3.What is the functionality of the shiroFilterRegistration method in the FilterConfig class?
+		Standard answer：The shiroFilterRegistration method in the FilterConfig class is responsible for registering the Shiro Filter in the servlet container, allowing it to handle authentication and authorization for incoming requests.
+
+project-fast\src\main\java\io\linfeng\datasource\config\DynamicDataSource.java
+	1.What is the purpose of the determineCurrentLookupKey method in the DynamicDataSource class?
+		Standard answer：The determineCurrentLookupKey method is used to determine the current lookup key for the dynamic data source.
+	2.What is the functionality of the DynamicDataSource class?
+		Standard answer：The DynamicDataSource class extends the AbstractRoutingDataSource class, which is a Spring class for implementing dynamic data source routing.
+	3.Does the DynamicDataSource class interact with other classes?
+		Standard answer：It extends the AbstractRoutingDataSource class, which is a part of the Spring Framework. 
+
+project-fast\src\main\java\io\linfeng\datasource\config\DynamicDataSourceFactory.java
+	1.What is the purpose of the properties parameter in the buildDruidDataSource method of the DynamicDataSourceFactory class?
+		Standard answer：The properties parameter is used to pass the configuration properties for creating a DruidDataSource instance.
+	2.What is the functionality of the buildDruidDataSource method in the DynamicDataSourceFactory class?
+		Standard answer：The buildDruidDataSource method is responsible for creating and configuring a DruidDataSource instance based on the provided DataSourceProperties. 
+	3.Does the DynamicDataSourceFactory class interact with other classes?
+		Standard answer：DruidDataSource from the Alibaba Druid library and DataSourceProperties from the io.linfeng.datasource.properties package. 
+
+project-fast\src\main\java\io\linfeng\modules\sys\dao\SysConfigDao.java
+	1.What is the purpose of the SysConfigEntity attribute in the SysConfigDao interface?
+		Standard answer：The SysConfigEntity attribute is used as the generic type parameter for the BaseMapper interface, indicating the entity class associated with the DAO. 
+	2.What is the functionality of the queryByKey method in the SysConfigDao interface?
+		Standard answer：The queryByKey method is used to retrieve a system configuration entity based on a given key. It takes a paramKey as a parameter and returns the corresponding SysConfigEntity instance that matches the key. 
+	3.Is there any interaction with other classes in the SysConfigDao interface?
+		Standard answer：The interface extends the IService interface from the com.baomidou.mybatisplus.extension.BaseMapper package, which provides generic CRUD operations.
+
+
+project-fast\src\main\java\io\linfeng\Applications.java
+	1.What is the purpose of the @EnableAsync annotation in the Applications class?
+		Standard answer：The @EnableAsync annotation enables asynchronous method execution in the Spring application. By applying this annotation, Spring configures a proxy to handle method invocations, allowing them to be executed asynchronously. 
+	2.What does the @EnableTransactionManagement annotation indicate in the Applications class?
+		Standard answer：The @EnableTransactionManagement annotation enables Spring's transaction management capabilities in the application. 
+	3.What is the purpose of the SpringApplication.run method in the Applications class?
+		Standard answer： The SpringApplication.run method is responsible for starting the Spring Boot application. It initializes the Spring context, performs necessary configuration, and starts the embedded server if applicable. 		
+		
+project-fast\src\main\java\io\linfeng\common\thread\AsyncTaskExecutePool.java
+	1.What is the purpose of the @Slf4j annotation in the given code?
+		Standard answer：The @Slf4j annotation is used to automatically generate a logger field in the class using the Simple Logging Facade for Java (SLF4J) framework. 
+	2.What is the role of the AsyncTaskExecutePool class in the code?
+		Standard answer：The AsyncTaskExecutePool class serves as a configuration class for defining and customizing the execution pool for asynchronous tasks.
+	3.What is the purpose of the getAsyncUncaughtExceptionHandler method in the AsyncTaskExecutePool class?
+		Standard answer：The getAsyncUncaughtExceptionHandler method is responsible for providing a custom exception handler for uncaught exceptions that occur during the execution of asynchronous tasks.
+
+project-fast\src\main\java\io\linfeng\common\utils\AppPageUtils.java
+	1.How is the pagination information calculated in the AppPageUtils class?
+		Standard answer：The pagination information is calculated based on the provided parameters in the constructor or the IPage object. 
+	2.How does the AppPageUtils class handle pagination information from an IPage object?
+		Standard answer：The AppPageUtils class provides a constructor that accepts an IPage<?> object. 
+	3.What is the purpose of the AppPageUtils class?
+		Standard answer： The AppPageUtils class serves as a utility class for handling pagination-related operations in an app. 
+
+project-fast\src\main\java\io\linfeng\common\utils\CopyPageQueryUtil.java
+	1.What is the purpose of the CopyPageQueryUtil class?
+		Standard answer：The CopyPageQueryUtil class provides utility methods for copying and transforming a AppPageUtils object that represents a paginated query response. 
+	2.What does the copyPageQuery method do?
+		Standard answer：It copies the data from the original page object's list by iterating over each item in the list.
+	3.What is the purpose of the copyPageQueryList method?
+		Standard answer： The copyPageQueryList method is similar to the copyPageQuery method, but it only performs the copy and transformation of the data without modifying the original page object.
+
+project-fast\src\main\java\io\linfeng\common\utils\DateUtil.java
+	1.What is the purpose of the nowDate method?
+		Standard answer：The nowDate method is used to retrieve the current date in the specified date format
+	2.What does the nowDateTime method do?
+		Standard answer：The nowDateTime method is responsible for retrieving the current date and time in the specified date format.
+	3.What does the getNowTime method do?
+		Standard answer：The getNowTime method retrieves the current time as an integer. 
+
+project-fast\src\main\java\io\linfeng\common\utils\IPUtil.java
+	1.What is the purpose of the getIp method?
+		Standard answer：The getIp method is used to retrieve the IP address of the client making the HTTP request. 
+	2.What is the purpose of the getCityInfo method?
+		Standard answer：The getCityInfo method retrieves the detailed address information (city info) associated with a given IP address.
+	3.What is the purpose of the IP_URL constant?
+		Standard answer：The IP_URL constant holds the URL pattern used for IP address lookup. 
+		
+project-fast\src\main\java\io\linfeng\common\utils\JsonUtils.java
+	1.What is the purpose of the JsonToList method?
+		Standard answer：The JsonToList method is used to convert a JSON string into a list of strings. 
+	2.Which library is used to parse the JSON in this code?
+		Standard answer：The Alibaba FastJSON library is used to parse the JSON in this code. T
+	3.What does the JsonToList method return?
+		Standard answer：The JsonToList method returns a List<String>. It converts the provided JSON string into a list of strings using the FastJSON library and returns the resulting list.
+
+project-fast\src\main\java\io\linfeng\common\utils\RequestUtils.java
+	1.What is the purpose of the getRequest method?
+		Standard answer：The getRequest method is used to retrieve the HttpServletRequest object associated with the current request.
+	2.Which Spring component is used to retrieve the current request attributes?
+		Standard answer：The RequestContextHolder class from the Spring Framework is used to retrieve the current request attributes. 
+	3.What type of object does the getRequest method return?
+		Standard answer：The getRequest method returns an HttpServletRequest object.  This object represents the HTTP request made by the client and contains information such as request headers, parameters, and session details.
+
+project-fast\src\main\java\io\linfeng\common\utils\WechatUtil.java
+	1.What is the purpose of the getOpenId method?
+		Standard answer：The getOpenId method is used to retrieve the OpenID from a WeChat mini-program by exchanging the provided code with the WeChat API.
+	2.What is the purpose of the isEmpty method?
+		Standard answer：The isEmpty method is a utility method used to determine whether an object is empty or not. 
+	3.Which library is used for JSON parsing in this code?
+		Standard answer：The Alibaba FastJSON library is used for JSON parsing in this code.
+		
+project-fast\src\main\java\io\linfeng\config\CorsConfig.java
+	1.What is the purpose of the CorsConfig class?
+		Standard answer：The CorsConfig class is a configuration class in Spring that is used to configure Cross-Origin Resource Sharing (CORS) for the application.
+	2.What does the addCorsMappings method do?
+		Standard answer：It is responsible for defining the CORS mappings and configurations for the application. 
+	3.How can this class be used in a Spring application?
+		Standard answer：We should annotate it with @Configuration, which indicates that it is a configuration class. 
+
+project-fast\src\main\java\io\linfeng\config\KaptchaConfig.java
+	1.What is the purpose of the producer method in the KaptchaConfig class?
+		Standard answer：The producer method is responsible for creating and configuring an instance of DefaultKaptcha from the Google Kaptcha library. 
+	2.What does the DefaultKaptcha class do?
+		Standard answer： It provides methods to generate CAPTCHA images with random characters, apply various visual effects, and validate the user's input against the generated CAPTCHA.
+	3.What is the purpose of the Config class from the Google Kaptcha library?
+		Standard answer：Used to configure the properties and settings for the CAPTCHA generation process.
+
+project-fast\src\main\java\io\linfeng\config\MybatisPlusConfig.java
+	1.What is the purpose of the paginationInterceptor method in the MybatisPlusConfig class?
+		Standard answer： It is used to enable pagination support for MyBatisPlus.
+	2.What does the PaginationInterceptor class do?
+		Standard answer：It is responsible for intercepting database queries and automatically adding pagination functionality to them. 
+	3.Is there any interaction with other classes in the MybatisPlusConfig class?
+		Standard answer：No, there is no direct interaction with other classes in the MybatisPlusConfig class. 
+
+project-fast\src\main\java\io\linfeng\config\RedisConfig.java
+	1.What is the purpose of the redisTemplate method in the RedisConfig class?
+		Standard answer：The redisTemplate method is responsible for creating and configuring an instance of the RedisTemplate class, which is a key component in Spring Data Redis.
+	2.What are the different Operations beans created in the RedisConfig class?
+		Standard answer：These beans provide convenient access to Redis operations for different data structures.
+	3.What does the StringRedisSerializer do in the redisTemplate method?
+		Standard answer：The StringRedisSerializer is a Redis serializer provided by Spring Data Redis. 
+
+project-fast\src\main\java\io\linfeng\config\SwaggerConfig.java
+	1.What is the purpose of the createRestApi method in the SwaggerConfig class?
+		Standard answer：The createRestApi method is responsible for creating and configuring a Docket instance, which represents the main Swagger configuration for documenting REST APIs. 
+	2.What is the purpose of the apiInfo method in the SwaggerConfig class?
+		Standard answer：The apiInfo method is used to provide general information about the API documentation.
+	3.What is the purpose of the securitySchemes method in the SwaggerConfig class?
+		Standard answer：The securitySchemes method is responsible for defining and configuring security schemes for the Swagger documentation. 
+
+project-fast\src\main\java\io\linfeng\datasource\config\DynamicDataSourceConfig.java
+	1.What is the purpose of the dataSourceProperties method in the DynamicDataSourceConfig class?
+		Standard answer：The dataSourceProperties method is used to create and configure an instance of the DataSourceProperties class.
+	2.What does the dynamicDataSource method do in the DynamicDataSourceConfig class?
+		Standard answer：The dynamicDataSource method is responsible for creating and configuring the DynamicDataSource object.
+	3.What does the getDynamicDataSource method do in the DynamicDataSourceConfig class?
+		Standard answer：The getDynamicDataSource method is responsible for retrieving a map of dynamic data sources based on the properties defined in the DynamicDataSourceProperties object.
+		
+project-fast\src\main\java\io\linfeng\datasource\properties\DynamicDataSourceProperties.java
+	1.What is the purpose of the datasource attribute in the DynamicDataSourceProperties class?
+		Standard answer：The datasource attribute is used to store a map of data source properties. Each entry in the map represents a specific data source identified by a unique key.
+	2.What does the getDatasource method do in the DynamicDataSourceProperties class?
+		Standard answer：The getDatasource method is a getter method that returns the map of data source properties stored in the datasource attribute.
+	3.Does the DynamicDataSourceProperties class interact with any other classes or methods?
+		Standard answer：The DynamicDataSourceProperties class does not directly interact with other classes or methods.
+
+project-fast\src\main\java\io\linfeng\modules\job\config\ScheduleConfig.java
+	1.What is the purpose of the schedulerFactoryBean method in the ScheduleConfig class?
+		Standard answer：The schedulerFactoryBean method is responsible for creating and configuring a SchedulerFactoryBean object, which serves as a factory for creating Quartz schedulers.
+	2.What functionality does the setQuartzProperties method provide in the schedulerFactoryBean method?
+		Standard answer：The setQuartzProperties method allows setting the Quartz properties for the SchedulerFactoryBean. It takes a Properties object as a parameter, which contains key-value pairs representing the Quartz properties. 
+	3.Does the ScheduleConfig class interact with any other classes or methods?
+		Standard answer：The ScheduleConfig class does not directly interact with other classes or methods. 
+
+project-fast\src\main\java\io\linfeng\modules\job\dao\ScheduleJobDao.java
+	1.What is the purpose of the ScheduleJobDao interface?
+		Standard answer：The ScheduleJobDao interface serves as a data access object (DAO) for the ScheduleJobEntity class, which represents a scheduled job entity.
+	2.What does the updateBatch method in the ScheduleJobDao interface do?
+		Standard answer：he updateBatch method is a custom method defined in the ScheduleJobDao interface. It is responsible for performing a batch update of job statuses based on the provided map parameter.
+	3.Which framework or library is used for the ScheduleJobDao interface?
+		Standard answer：MyBatis Plus and Apache MyBatis. 
+		
+project-fast\src\main\java\io\linfeng\modules\sys\dao\SysRoleDao.java
+	1.What is the purpose of the SysRoleDao interface?
+		Standard answer：The SysRoleDao interface serves as a data access object (DAO) for the SysRoleEntity class, which represents a role entity in a system.
+	2.What does the queryRoleIdList method in the SysRoleDao interface do?
+		Standard answer： It is responsible for querying and returning a list of role IDs that were created by a specific user, identified by the createUserId parameter.
+	3.Does the SysRoleDao class interact with any other classes or methods?
+		Standard answer： The SysRoleDao interface does not directly interact with other classes or methods in the provided code snippet.
+
+project-fast\src\main\java\io\linfeng\modules\sys\dao\SysRoleMenuDao.java
+	1.What is the purpose of the SysRoleMenuDao interface?
+		Standard answer：The SysRoleMenuDao interface serves as a data access object (DAO) for the SysRoleMenuEntity class, which represents the association between roles and menus. 
+	2.What does the queryMenuIdList method in the SysRoleMenuDao interface do?
+		Standard answer：It is responsible for retrieving a list of menu IDs associated with a specific role, identified by the roleId parameter. 
+	3.What does the deleteBatch method in the SysRoleMenuDao interface do?
+		Standard answer：It is used to perform a batch deletion of roles based on an array of role IDs specified by the roleIds parameter. 
+
+project-fast\src\main\java\io\linfeng\modules\sys\dao\SysUserRoleDao.java
+	1.What is the purpose of the SysUserRoleDao interface?
+		Standard answer：The SysUserRoleDao interface serves as a data access object (DAO) for the SysUserRoleEntity class.
+	2.What does the queryRoleIdList method in the SysUserRoleDao interface do?
+		Standard answer：It is responsible for retrieving a list of role IDs associated with a specific user, identified by the userId parameter.
+	3.What does the deleteBatch method in the SysUserRoleDao interface do?
+		Standard answer：It is used to perform a batch deletion of roles based on an array of role IDs specified by the roleIds parameter. 
+		
+
