@@ -1,11 +1,11 @@
-# RQ1
-This directory contains the experimental results for RQ1.
+# RQ6
+This directory contains the experimental results for RQ6.
 
-## DWM, OWM, and EWM
-These directories contain the results obtained on CANs using DWM, OWM, EWM  to assign strengths for different relationship types, respectively.
+## CSV files
+These files contain the time that each participant required to comprehend classes.
 
-## Merged_top...
-Directory names containing *merged* mean that we aggregated some results into a separate file (across all subject systems and *k* values).
+## project-fast-QA.txt and trymall-QA.txt
+These files contain the the quizzes. These quizzes, meticulously tailored for each class, were designed to evaluate code comprehension across multifaceted dimensions.
 
-## WinTieLoss or WTL
-This directory reports the win, tie, loss statistics.
+## zip files
+The source code of the two subject systems.
