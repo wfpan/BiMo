@@ -1,0 +1,21 @@
+﻿% k, BiMo,fgcs,,,kang,,,sora,,
+TSPrideWithMotifCoreness_new_vsm-1(W/T/L): ,2|12|4,2,12,4,5,12,1,2,14,2
+TSPrideWithMotifCoreness_new_vsm-2(W/T/L): ,1|16|1,1,16,1,2,16,0,1,17,0
+TSPrideWithMotifCoreness_new_vsm-3(W/T/L): ,4|13|1,4,13,1,4,14,0,4,13,1
+TSPrideWithMotifCoreness_new_vsm-4(W/T/L): ,3|14|1,3,14,1,2,15,1,4,13,1
+TSPrideWithMotifCoreness_new_vsm-5(W/T/L): ,1|16|1,1,16,1,3,15,0,3,14,1
+TSPrideWithMotifCoreness_new_vsm-6(W/T/L): ,2|15|1,2,15,1,1,15,2,1,15,2
+TSPrideWithMotifCoreness_new_vsm-7(W/T/L): ,0|16|2,0,16,2,2,14,2,2,15,1
+TSPrideWithMotifCoreness_new_vsm-8(W/T/L): ,1|15|2,1,15,2,2,16,0,0,18,0
+TSPrideWithMotifCoreness_new_vsm-9(W/T/L): ,1|14|3,1,14,3,0,16,2,0,16,2
+TSPrideWithMotifCoreness_new_vsm-10(W/T/L): ,1|16|1,1,16,1,2,14,2,0,18,0
+TSPrideWithMotifCoreness_new_vsm-11(W/T/L): ,0|16|2,0,16,2,2,14,2,1,16,1
+TSPrideWithMotifCoreness_new_vsm-12(W/T/L): ,0|17|1,0,17,1,2,14,2,3,14,1
+TSPrideWithMotifCoreness_new_vsm-13(W/T/L): ,0|16|2,0,16,2,2,14,2,1,16,1
+TSPrideWithMotifCoreness_new_vsm-14(W/T/L): ,2|13|3,2,13,3,1,16,1,5,12,1
+TSPrideWithMotifCoreness_new_vsm-15(W/T/L): ,3|13|2,3,13,2,2,15,1,3,13,2
+sum,,21,222,27,32,220,18,30,224,16
+sum,,21|222|27,32|220|18,30|224|16,,,,,,
+WTL%,,0.0777777777777778|0.822222222222222|0.1,0.118518518518519|0.814814814814815|0.0666666666666667,0.111111111111111|0.82962962962963|0.0592592592592593,,,,,,
+no worse,,90.0%,93.3%,94.1%,,,,,,
+,,7.8%,82.2%,10.0%,11.9%,81.5%,6.7%,11.1%,83.0%,5.9%
