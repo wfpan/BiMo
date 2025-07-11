@@ -16,6 +16,12 @@ This directory contains the experimental results obtained for each RQ.
 # discussion
 This directory contains the experimental results obtained in the Discussion section.
 
+# Appdendix
+This directory contains the online appendices mentioned in our manuscript.
+
+# otherResults
+This directory contains other results not reported in our manuscript, such as *precision* and *f$_1$*.
+
 # Code
 This directory contains the software BiMo.jar to calculate BMR values of classes. It is a small part of our own developed software, SNAP, which can be obtained by emailing us (Email: wfpan@zjgsu.edu.cn). Please use your institutional email address. Otherwise, we may not be able to respond to your emails.
 
