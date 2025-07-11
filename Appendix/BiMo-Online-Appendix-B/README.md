@@ -1,2 +1,2 @@
-# Online-Appendix
-This file contains four parts: i) a brief description of subject systems, ii) definisions of design metrics, iii) definitions of unweighted network metrics, and iv) software network representation. 
+# Online Appendix B
+This directory contains a simple example to construct the MCCN. Please use Jupyter to run the script. 
