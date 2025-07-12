@@ -1,0 +1,3 @@
+paired methods,Wilcoxon p,Cliff's delta,effect size (delta),Wilcoxon r, effect size (r) 
+TSPrideWithMotifCoreness-SORA vs. TSPrideWithMotifCoreness-FGCS,0.053683366523674225,0.1625,small,-0.12660417792198378,small
+TSPrideWithMotifCoreness-SORA vs. TSPrideWithMotifCoreness-KANG,0.3308874728766602,0.23076923076923078,small,-0.06487959324967613,negligible
