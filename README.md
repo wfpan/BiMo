@@ -1,5 +1,5 @@
 # BiMo
-This is the replication package for our work submitted to IEEE Transactions on Software Engineering, i.e., Weifeng Pan, Xiaolong Cui, Hua Ming, Carl K. Chang, Zijiang Yang, Stephen W. Turner, and Bo Jiang. XXXXXXXXX. IEEE Transactions on Software Engineering, 2025. [[PDF](#)]
+This is the replication package for our work submitted to IEEE Transactions on Software Engineering, i.e., Weifeng Pan, Xiaolong Cui, Hua Ming, Zijiang Yang, Jingshu Chen, Stephen W. Turner, and Bo Jiang. XXXXXXXXX. IEEE Transactions on Software Engineering, 2025. [[PDF](#)]
 
 # CANs
 This directory contains the CANs that we built for all the subject systems used in our experiments. There are three versions of CANs according to different weighting mechanisms. 
@@ -37,4 +37,4 @@ The steps to use BiMoV1.0.jar is shown as follows. To run the software, you shou
 # Cite our work
 If you use our dataset or tool, please cite our work.
 
-Weifeng Pan, Xiaolong Cui, Hua Ming, Carl K. Chang, Zijiang Yang, Stephen W. Turner, and Bo Jiang. XXXXXXXXX. IEEE Transactions on Software Engineering, 2025. [[PDF](#)]
+Weifeng Pan, Xiaolong Cui, Hua Ming, Zijiang Yang, Jingshu Chen, Stephen W. Turner, and Bo Jiang. XXXXXXXXX. IEEE Transactions on Software Engineering, 2025. [[PDF](#)]
