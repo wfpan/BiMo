@@ -30,7 +30,7 @@ The steps to use BiMoV1.0.jar is shown as follows. To run the software, you shou
 - Download the BiMoV1.0.jar and the dataset file to the same directory.
 - Double-click the BiMoV1.0.jar
 - Select File->Open a CAN file... 
-- Browse the data directory and select a specific CAN file (end with .net).
+- Browse the data directory and select a specific CAN file (ending with .net).
 - Select Analysis -> BiCoRank
 - Then you will get the BMR values for each class in the popup window.
 
