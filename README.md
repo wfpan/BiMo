@@ -5,7 +5,7 @@ This is the replication package for our work submitted to IEEE Transactions on S
 This directory contains the CANs that we built for all the subject systems used in our experiments. There are three versions of CANs according to different weighting mechanisms. 
 
 # MCCNs
-This directory will contain the MCCNs used in this work. But now it is null. The whole set of MCCNs will be available after our work's acceptance. Of course, interested readers can email us (Email: wfpan@zjgsu.edu.cn) to get the whole data set in advance. Please use your institutional email address. Otherwise, we may not be able to respond to your emails.
+This directory will contain the MCCNs used in this work.
 
 # goldset
 This directory contains the actual key classes for each subject system.
