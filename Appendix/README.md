@@ -1,2 +1,3 @@
 # BiMo Online Appendix
-This directory contains the **appendices** used in our manuscript.
+
+This directory contains the online **appendices** used in our manuscript.
