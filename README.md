@@ -1,5 +1,5 @@
 # BiMo
-This is the replication package for our work submitted to IEEE Transactions on Software Engineering, i.e., Weifeng Pan, Xiaolong Cui, Hua Ming, Zijiang Yang, Jingshu Chen, Stephen W. Turner, and Bo Jiang. XXXXXXXXX. ACM Transactions on Software Engineering and Methodology (TOSEM), 2025. [[PDF](#)]
+This is the replication package for our work submitted to ACM Transactions on Software Engineering and Methodology (TOSEM), i.e., Weifeng Pan, Xiaolong Cui, Hua Ming, Zijiang Yang, Jingshu Chen, Stephen W. Turner, and Bo Jiang. XXXXXXXXX. ACM Transactions on Software Engineering and Methodology (TOSEM), 2025. [[PDF](#)]
 
 # CANs
 This directory contains the CANs that we built for all the subject systems used in our experiments. There are three versions of CANs according to different weighting mechanisms. 
