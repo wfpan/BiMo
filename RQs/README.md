@@ -16,5 +16,5 @@ This directory contains the results used to answer RQ4.
 ## RQ5
 All the results have been reported in the manuscript.
 
-## RQ6
+## RQ6 (this part has not been included in our manuscript)
 This directory contains the results used to answer RQ6.
