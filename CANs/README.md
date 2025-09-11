@@ -1,5 +1,5 @@
 # CANs
-This directory contains the CANs built using different weighting mechanisms---DWM, OWM, and EWM.
+This directory contains the CANs built using different weighting mechanisms, i.e., DWM, OWM, and EWM.
 
 ## DWM
 This directory contains the CANs built using DWM for assigning strength for different relathionship types.
