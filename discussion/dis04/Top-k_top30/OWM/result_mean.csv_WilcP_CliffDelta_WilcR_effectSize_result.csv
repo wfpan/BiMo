@@ -1,0 +1,12 @@
+paired methods,Wilcoxon p,Cliff's delta,effect size (delta),Wilcoxon r, effect size (r) 
+PrideWithMotifCoreness vs. h-index,6.20593600464403E-6,0.8620689655172413,large,-0.8371958157289853,large
+PrideWithMotifCoreness vs. a-index,2.430702582989497E-6,1.0,large,-0.8733337646093731,large
+PrideWithMotifCoreness vs. k-core,2.430702582989497E-6,1.0,large,-0.8733337646093731,large
+PrideWithMotifCoreness vs. ForwardPageRank-Sora,1.3847624671825542E-5,0.7931034482758621,large,-0.8050731945019738,large
+PrideWithMotifCoreness vs. ForwardBackPageRank-Sora,1.3847624671825542E-5,0.7931034482758621,large,-0.8050731945019738,large
+PrideWithMotifCoreness vs. g-core,6.930213797673446E-5,0.7931034482758621,large,-0.7368126243945745,large
+PrideWithMotifCoreness vs. MinClass,1.1360643958902017E-5,0.7931034482758621,large,-0.8131038498087267,large
+PrideWithMotifCoreness vs. TSEPageRank,2.430702582989497E-6,1.0,large,-0.8733337646093731,large
+PrideWithMotifCoreness vs. LiuPageRank,2.7023691404615136E-6,0.9310344827586207,large,-0.8693184369559966,large
+PrideWithMotifCoreness vs. TSEPageRank_v15,7.6053543769383225E-6,0.7931034482758621,large,-0.8291651604222323,large
+PrideWithMotifCoreness vs. iFit,1.834253750221393E-4,-0.5862068965517241,large,-0.6926440202074338,large
