@@ -1,5 +1,5 @@
 # BiMo
-This is the replication package for our work submitted to ACM Transactions on Software Engineering and Methodology (TOSEM), i.e., Weifeng Pan, Xiaolong Cui, Hua Ming, Zijiang Yang, Jingshu Chen, and Bo Jiang. XXXXXXXXX. ACM Transactions on Software Engineering and Methodology (TOSEM), 2025. [[PDF](#)]
+This is the replication package for our work submitted to ACM Transactions on Software Engineering and Methodology (TOSEM), i.e., Weifeng Pan, Xiaolong Cui, Hua Ming, Zijiang Yang, Jingshu Chen, Bo Jiang, and Mohamed Almukhtar. XXXXXXXXX. ACM Transactions on Software Engineering and Methodology (TOSEM), 2025. [[PDF](#)]
 
 # CANs
 This directory contains the CANs that we built for all the subject systems used in our experiments. There are three versions of CANs according to different weighting mechanisms. 
@@ -8,7 +8,7 @@ This directory contains the CANs that we built for all the subject systems used 
 This directory contains the MCCNs used in this work.
 
 # goldset
-This directory contains the actual key classes for each subject system.
+This directory contains the actual key classes (ground truth) for each subject system.
 
 # RQs
 This directory contains the experimental results obtained for each RQ.
@@ -23,18 +23,9 @@ This directory contains the online appendices mentioned in our manuscript.
 This directory contains other results not reported in our manuscript, such as *precision* and *f$_1$*.
 
 # Code
-This directory contains the software BiMo.jar to calculate BMR values of classes. It is a small part of our own developed software, SNAP, which can be obtained by emailing us (Email: wfpan@zjgsu.edu.cn). Please use your institutional email address. Otherwise, we may not be able to respond to your emails.
-
-# How to use our dataset and software
-The steps to use BiMoV1.0.jar is shown as follows. To run the software, you should install the jdk (java development kit) 1.6 (or higher) first in your computer. JDK can be downloaded from https://www.oracle.com/technetwork/java/javase/downloads/index.html
-- Download the BiMoV1.0.jar and the dataset file to the same directory.
-- Double-click the BiMoV1.0.jar
-- Select File->Open a CAN file... 
-- Browse the data directory and select a specific CAN file (ending with .net).
-- Select Analysis -> BiCoRank
-- Then you will get the BMR values for each class in the popup window.
+This directory contains the software to replicate our work.
 
 # Cite our work
 If you use our dataset or tool, please cite our work.
 
-Weifeng Pan, Xiaolong Cui, Hua Ming, Zijiang Yang, Jingshu Chen, and Bo Jiang. XXXXXXXXX. ACM Transactions on Software Engineering and Methodology (TOSEM), 2025. [[PDF](#)]
+Weifeng Pan, Xiaolong Cui, Hua Ming, Zijiang Yang, Jingshu Chen, Bo Jiang, and Mohamed Almukhtar. XXXXXXXXX. ACM Transactions on Software Engineering and Methodology (TOSEM), 2025. [[PDF](#)]
